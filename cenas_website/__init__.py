@@ -18,12 +18,17 @@ REDIRECTS = {
     "/community": "/#community",
     "/donations": "/#donations",
     "/career": "/#careers",
-    "/apply/copperfield": "/#careers",
-    "/apply/tomball": "/#careers",
     "/contact": "/#contact",
     "/gallery": "/#about",
     "/thank-you": "/",
 }
+# NOTE: /apply/copperfield and /apply/tomball are served (job applications),
+# reached from the Careers position picker with ?position=... NOT redirected.
+
+
+def _page(name):
+    with open(os.path.join(BASE, name), encoding="utf-8") as f:
+        return Response(f.read(), mimetype="text/html")
 
 
 def create_app():
@@ -35,8 +40,15 @@ def create_app():
 
     @app.route("/")
     def home():
-        with open(os.path.join(BASE, "index.html"), encoding="utf-8") as f:
-            return Response(f.read(), mimetype="text/html")
+        return _page("index.html")
+
+    @app.route("/apply/copperfield")
+    def apply_copperfield():
+        return _page("apply_copperfield.html")
+
+    @app.route("/apply/tomball")
+    def apply_tomball():
+        return _page("apply_tomball.html")
 
     for _old, _new in REDIRECTS.items():
         _ep = "redir_" + _old.strip("/").replace("/", "_")
@@ -54,7 +66,6 @@ def create_app():
 
     @app.errorhandler(404)
     def not_found(_e):
-        # any unknown/retired path -> the single-page site
         return redirect("/", code=302)
 
     return app
