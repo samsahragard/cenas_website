@@ -1,5 +1,7 @@
 import os
-from flask import Flask, Response, redirect
+from urllib.parse import quote
+
+from flask import Flask, Response, redirect, request
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
@@ -18,12 +20,12 @@ REDIRECTS = {
     "/community": "/#community",
     "/donations": "/#donations",
     "/career": "/#careers",
+    "/careers": "/#careers",
+    "/spirit": "/#spirit",
     "/contact": "/#contact",
     "/gallery": "/#about",
     "/thank-you": "/",
 }
-# NOTE: /apply/copperfield and /apply/tomball are served (job applications),
-# reached from the Careers position picker with ?position=... NOT redirected.
 
 
 def _page(name):
@@ -42,13 +44,16 @@ def create_app():
     def home():
         return _page("index.html")
 
-    @app.route("/apply/copperfield")
-    def apply_copperfield():
-        return _page("apply_copperfield.html")
-
-    @app.route("/apply/tomball")
-    def apply_tomball():
-        return _page("apply_tomball.html")
+    @app.route("/apply/<location>")
+    def apply_redirect(location):
+        loc = (location or "").strip().lower()
+        if loc not in {"copperfield", "tomball"}:
+            return redirect("/#careers", code=301)
+        position = (request.args.get("position") or "").strip()
+        query = f"?career_location={quote(loc)}"
+        if position:
+            query += f"&career_position={quote(position)}"
+        return redirect(f"/{query}#careers", code=301)
 
     for _old, _new in REDIRECTS.items():
         _ep = "redir_" + _old.strip("/").replace("/", "_")

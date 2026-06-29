@@ -1905,7 +1905,8 @@ p{margin:0 0 1rem}
     <div class="wrap" style="max-width:760px">
       <div class="sec-head center reveal"><span class="eyebrow" style="color:var(--ember)">Get a quote</span><h2 style="color:var(--bone)">Tell us about your event</h2></div>
       <div class="form-wrap reveal d1">
-        <form class="cform" action="https://formspree.io/f/mzdageve" method="POST">
+        <form class="cform" action="https://app.cenaskitchen.com/public/forms/catering" method="POST">
+          <input type="hidden" name="_source_page" value="Catering quote">
           <div class="fgrid">
             <div class="field"><label for="cat-name">Your name</label><input id="cat-name" name="name" type="text" required></div>
             <div class="field"><label for="cat-email">Email</label><input id="cat-email" name="email" type="email" required></div>
@@ -1969,9 +1970,10 @@ p{margin:0 0 1rem}
     <div class="wrap" style="max-width:760px">
       <div class="sec-head center reveal"><span class="eyebrow" style="color:var(--ember)">Tomball kitchen</span><h2 style="color:var(--bone)">Catering request &mdash; Tomball</h2><p class="lead" style="color:rgba(243,231,209,.82)">Fill out the form and we'll be in touch within 2 business days.</p></div>
       <div class="form-wrap reveal d1">
-        <form class="cform" action="https://formspree.io/f/mzdageve" method="POST">
+        <form class="cform" action="https://app.cenaskitchen.com/public/forms/catering" method="POST">
           <input type="hidden" name="_subject" value="New Catering Request &mdash; Tomball">
           <input type="hidden" name="location" value="Tomball">
+          <input type="hidden" name="_source_page" value="Catering request - Tomball">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div class="fgrid">
             <div class="field"><label for="ct-name">Your name</label><input id="ct-name" name="name" type="text" required></div>
@@ -2013,9 +2015,10 @@ p{margin:0 0 1rem}
     <div class="wrap" style="max-width:760px">
       <div class="sec-head center reveal"><span class="eyebrow" style="color:var(--ember)">Copperfield kitchen</span><h2 style="color:var(--bone)">Catering request &mdash; Copperfield</h2><p class="lead" style="color:rgba(243,231,209,.82)">Fill out the form and we'll be in touch within 2 business days.</p></div>
       <div class="form-wrap reveal d1">
-        <form class="cform" action="https://formspree.io/f/mykdjepk" method="POST">
+        <form class="cform" action="https://app.cenaskitchen.com/public/forms/catering" method="POST">
           <input type="hidden" name="_subject" value="New Catering Request &mdash; Copperfield">
           <input type="hidden" name="location" value="Copperfield">
+          <input type="hidden" name="_source_page" value="Catering request - Copperfield">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div class="fgrid">
             <div class="field"><label for="cc-name">Your name</label><input id="cc-name" name="name" type="text" required></div>
@@ -2096,7 +2099,8 @@ p{margin:0 0 1rem}
     <div class="wrap">
       <div class="sec-head center reveal"><span class="eyebrow" style="color:var(--ember)">Request your flyer now</span><h2 style="color:var(--bone)">Spirit Day application</h2><p class="lead" style="color:rgba(243,231,209,.82)">Tell us about your organization and pick three preferred dates. Spirit Days run Mondays &amp; Tuesdays and are reserved for non-profit organizations.</p></div>
       <div class="form-wrap reveal" style="max-width:52rem;margin:0 auto">
-        <form class="cform">
+        <form class="cform" action="https://app.cenaskitchen.com/public/forms/spirit" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_source_page" value="Spirit Day application">
           <div class="fgrid">
             <div class="field full"><label for="sd-org">Organization name</label><input id="sd-org" name="organization" type="text" required></div>
             <div class="field"><label for="sd-tax">Tax ID</label><input id="sd-tax" name="tax_id" type="text" required></div>
@@ -2156,7 +2160,8 @@ p{margin:0 0 1rem}
     <div class="wrap">
       <div class="sec-head center reveal"><span class="eyebrow" style="color:var(--ember)">Tell us about it</span><h2 style="color:var(--bone)">Donation request form</h2><p class="lead" style="color:rgba(243,231,209,.82)">The more detail you share, the better we can review your request. Requests must be submitted at least 30 days before your event.</p></div>
       <div class="form-wrap reveal" style="max-width:54rem;margin:0 auto">
-        <form class="cform">
+        <form class="cform" action="https://app.cenaskitchen.com/public/forms/donation" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_source_page" value="Donation request">
           <div class="fgrid">
 
             <div class="form-section"><h3>How can we help</h3><span class="ln"></span></div>
@@ -2223,6 +2228,27 @@ p{margin:0 0 1rem}
   .ck-pos-go{font-size:.72rem;font-weight:700;opacity:.6}
   .ck-pos-card:hover .ck-pos-go{opacity:.9}
   .ck-back-btn{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--ember);text-decoration:underline;padding:0;margin-left:auto}
+  .ck-application-panel{max-width:58rem;margin:2rem auto 0}
+  .ck-application-panel .form-wrap{background:var(--bone-2);color:var(--ink)}
+  .ck-applying{margin:0 0 1rem;font-weight:800;color:var(--oxblood);background:rgba(233,162,59,.16);border:1px solid rgba(233,162,59,.38);border-radius:10px;padding:.85rem 1rem}
+  .ck-career-form fieldset{border-radius:14px;margin:0 0 1.2rem;padding:1.2rem;border:1.5px solid var(--bone-3)}
+  .ck-career-form fieldset.ck-required{border-color:var(--oxblood);background:rgba(92,26,33,.035)}
+  .ck-career-form fieldset.ck-optional{border-style:dashed;background:rgba(255,255,255,.45)}
+  .ck-career-form legend{padding:0 .5rem}
+  .ck-secbanner{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:900;font-size:1.3rem;color:var(--oxblood)}
+  .ck-flag{display:inline-block;font-family:var(--font-body);font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:.22rem .65rem}
+  .ck-flag.req{background:var(--oxblood);color:var(--bone)}
+  .ck-flag.opt{background:var(--bone-3);color:var(--ink-soft)}
+  .ck-section-note{font-size:.88rem;color:var(--ink-soft);margin:.2rem 0 1rem}
+  .ck-sub{grid-column:1/-1;font-weight:900;color:var(--oxblood);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin:1.1rem 0 .15rem;padding-bottom:.35rem;border-bottom:1px solid var(--bone-3)}
+  .ck-career-form .radio-row,.ck-career-form .check-grid{display:flex;gap:1rem;flex-wrap:wrap;padding:.25rem 0}
+  .ck-career-form .check-grid label,.ck-career-form .radio-row label{display:inline-flex;align-items:center;gap:.45rem;margin:0;color:var(--ink);font-size:.94rem;font-weight:700}
+  .ck-career-form input[type=radio],.ck-career-form input[type=checkbox]{width:auto;min-height:0;padding:0;accent-color:var(--ember)}
+  .ck-career-form .certify{display:flex;gap:.7rem;align-items:flex-start;font-weight:700}
+  .ck-work-block{grid-column:1/-1;border:1px solid var(--bone-3);border-radius:12px;padding:1rem;background:#fff}
+  .ck-work-block h4{font-family:var(--font-body);font-weight:900;color:var(--oxblood);margin:0 0 .8rem}
+  #add-work{border:1.5px solid var(--oxblood);color:var(--oxblood);border-radius:999px;padding:.65rem 1rem;font-weight:900;background:#fff;margin:.4rem 0 1rem}
+  @media(max-width:760px){.ck-career-form fieldset{padding:1rem}.ck-application-panel{margin-top:1.2rem}}
 </style>
 <section class="page" id="page-careers">
   <div class="dark phead glow"><div class="wrap"><span class="eyebrow" style="justify-content:center;color:var(--ember)">Join us</span><h1>Work at Cenas</h1><p class="lead">We hire good people and treat them like family. Tips paid out, room to grow.</p></div></div>
@@ -2255,6 +2281,110 @@ p{margin:0 0 1rem}
         </p>
         <div class="ck-pos-grid" id="ck-pos-grid"><!-- positions injected by script --></div>
       </div>
+
+      <div id="ck-apply-panel" class="ck-application-panel ck-hidden">
+        <div class="sec-head center" style="margin-bottom:1.2rem"><span class="eyebrow" style="color:var(--ember)">Application</span><h2 style="color:var(--bone)">Tell us about you</h2></div>
+        <div class="form-wrap">
+          <form class="cform ck-career-form" action="https://app.cenaskitchen.com/public/forms/career" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_source_page" value="Careers application">
+            <input type="hidden" name="location" id="ck-career-location-hidden">
+            <input type="hidden" name="desired_position" id="desired_position_hidden">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="ck-applying">Applying for: <strong id="ck-applying-pos">General application</strong></div>
+
+            <fieldset class="ck-required">
+              <legend><span class="ck-secbanner">Required <span class="ck-flag req">Required</span></span></legend>
+              <p class="ck-section-note">Every field in this section must be completed.</p>
+              <div class="fgrid">
+                <div class="ck-sub">Personal Information</div>
+                <div class="field"><label for="ca-first">First Name</label><input id="ca-first" type="text" name="first_name" required></div>
+                <div class="field"><label for="ca-last">Last Name</label><input id="ca-last" type="text" name="last_name" required></div>
+                <div class="field"><label for="ca-email">Email Address</label><input id="ca-email" type="email" name="email" required></div>
+                <div class="field"><label for="ca-mobile">Mobile Number</label><input id="ca-mobile" type="tel" name="mobile" required></div>
+                <div class="field"><label for="ca-dob">Date of Birth</label><input id="ca-dob" type="date" name="dob" required></div>
+                <div class="field"><label for="ca-addr1">Address Line 1</label><input id="ca-addr1" type="text" name="addr1" required></div>
+                <div class="field"><label for="ca-city">City</label><input id="ca-city" type="text" name="city" required></div>
+                <div class="field"><label for="ca-state">State</label><select id="ca-state" name="state" required><option value="" disabled selected>Select State</option><option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option></select></div>
+                <div class="field"><label for="ca-zip">Zip Code</label><input id="ca-zip" type="text" name="zip" required></div>
+
+                <div class="ck-sub">Screening</div>
+                <div class="field full"><label>Felony/gross misdemeanor history?</label><div class="radio-row"><label><input type="radio" name="felony_history" value="Yes" required> Yes</label><label><input type="radio" name="felony_history" value="No"> No</label></div></div>
+
+                <div class="ck-sub">Work Authorization</div>
+                <div class="field full"><label>Authorized to work in the U.S.?</label><div class="radio-row"><label><input type="radio" name="us_authorized" value="Yes" required> Yes</label><label><input type="radio" name="us_authorized" value="No"> No</label></div></div>
+
+                <div class="ck-sub">Final &amp; Acknowledgment</div>
+                <label class="certify field full"><input type="checkbox" name="certify_true" required> I certify that the information provided is true and complete to the best of my knowledge. I consent to pre-employment screening.</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ck-optional">
+              <legend><span class="ck-secbanner">Optional <span class="ck-flag opt">Optional</span></span></legend>
+              <p class="ck-section-note">These help us get to know you, but you can skip any of them.</p>
+              <div class="fgrid">
+                <div class="ck-sub">Position &amp; Availability</div>
+                <div class="field"><label for="ca-employment">Employment Type</label><select id="ca-employment" name="employment_type"><option value="" disabled selected>Select</option><option>Full-Time</option><option>Part-Time</option><option>Seasonal</option></select></div>
+                <div class="field"><label for="ca-start">Available to Start</label><input id="ca-start" type="date" name="available_start"></div>
+                <div class="field"><label>Applied here before?</label><div class="radio-row"><label><input type="radio" name="applied_before" value="Yes"> Yes</label><label><input type="radio" name="applied_before" value="No"> No</label></div></div>
+                <div class="field"><label>Worked here before?</label><div class="radio-row"><label><input type="radio" name="worked_before" value="Yes"> Yes</label><label><input type="radio" name="worked_before" value="No"> No</label></div></div>
+                <div id="prev_location_wrap" class="field full ck-hidden"><label for="previous_location">If you worked here before, which location?</label><input id="previous_location" type="text" name="previous_location" placeholder="Copperfield or Tomball"></div>
+                <div class="field"><label for="ca-times">Times Available</label><input id="ca-times" type="text" name="times_available" placeholder="e.g., Weekdays 4pm-10pm; Weekends open"></div>
+                <div class="field"><label for="ca-refsrc">How did you hear about us?</label><input id="ca-refsrc" type="text" name="referral_source" placeholder="Friend, Indeed, Instagram, Walk-in, etc."></div>
+                <div class="field full"><label>Days Available</label><div class="check-grid"><label><input type="checkbox" name="days_available" value="Mon"> Mon</label><label><input type="checkbox" name="days_available" value="Tue"> Tue</label><label><input type="checkbox" name="days_available" value="Wed"> Wed</label><label><input type="checkbox" name="days_available" value="Thu"> Thu</label><label><input type="checkbox" name="days_available" value="Fri"> Fri</label><label><input type="checkbox" name="days_available" value="Sat"> Sat</label><label><input type="checkbox" name="days_available" value="Sun"> Sun</label></div></div>
+
+                <div class="ck-sub">Work History</div>
+                <div id="work-history-list" class="field full">
+                  <div class="ck-work-block" data-index="1">
+                    <h4>Employer #1</h4>
+                    <div class="fgrid">
+                      <div class="field"><label>Employer Name</label><input type="text" name="work1_employer"></div>
+                      <div class="field"><label>Job Title</label><input type="text" name="work1_job_title"></div>
+                      <div class="field"><label>Start Date</label><input type="date" name="work1_start_date"></div>
+                      <div class="field"><label>End Date</label><input type="date" name="work1_end_date"></div>
+                      <div class="field full"><label>Still employed there?</label><div class="radio-row"><label><input type="radio" name="work1_still_employed" value="Yes"> Yes</label><label><input type="radio" name="work1_still_employed" value="No"> No</label></div></div>
+                      <div class="field"><label>Employer Address</label><input type="text" name="work1_employer_address"></div>
+                      <div class="field"><label>Employer Phone</label><input type="tel" name="work1_employer_phone"></div>
+                      <div class="field"><label>Supervisor's Name</label><input type="text" name="work1_supervisor"></div>
+                      <div class="field"><label>May we contact this employer?</label><div class="radio-row"><label><input type="radio" name="work1_ok_to_contact" value="Yes"> Yes</label><label><input type="radio" name="work1_ok_to_contact" value="No"> No</label></div></div>
+                      <div class="field"><label>Starting Pay Rate</label><input type="text" name="work1_start_pay"></div>
+                      <div class="field"><label>Ending Pay Rate</label><input type="text" name="work1_end_pay"></div>
+                      <div class="field full"><label>Responsibilities &amp; Duties</label><textarea name="work1_responsibilities" rows="3"></textarea></div>
+                      <div class="field full"><label>Reason for Leaving</label><input type="text" name="work1_reason_for_leaving"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field full"><button type="button" id="add-work">+ Add Another Employer</button></div>
+
+                <div class="ck-sub">Education</div>
+                <div class="field full"><label for="ca-education">Highest Level of Education Completed</label><input id="ca-education" type="text" name="education_level" placeholder="e.g., High School Diploma, Associate, Bachelor's"></div>
+
+                <div class="ck-sub">Reference</div>
+                <div class="field"><label for="ca-ref-name">Reference Name</label><input id="ca-ref-name" type="text" name="ref_name"></div>
+                <div class="field"><label for="ca-ref-email">Reference Email</label><input id="ca-ref-email" type="email" name="ref_email"></div>
+                <div class="field"><label for="ca-ref-phone">Reference Phone</label><input id="ca-ref-phone" type="tel" name="ref_phone"></div>
+                <div class="field"><label for="ca-ref-type">Reference Type</label><select id="ca-ref-type" name="ref_type"><option value="" disabled selected>Select</option><option>Personal</option><option>Work</option></select></div>
+                <div class="field"><label for="ca-ref-addr1">Reference Address Line 1</label><input id="ca-ref-addr1" type="text" name="ref_addr1"></div>
+                <div class="field"><label for="ca-ref-addr2">Reference Address Line 2</label><input id="ca-ref-addr2" type="text" name="ref_addr2"></div>
+                <div class="field"><label for="ca-ref-city">Reference City</label><input id="ca-ref-city" type="text" name="ref_city"></div>
+                <div class="field"><label for="ca-ref-state">Reference State</label><input id="ca-ref-state" type="text" name="ref_state"></div>
+                <div class="field"><label for="ca-ref-zip">Reference Zip</label><input id="ca-ref-zip" type="text" name="ref_zip"></div>
+                <div class="field"><label for="ca-ref-country">Reference Country</label><input id="ca-ref-country" type="text" name="ref_country"></div>
+                <div class="field"><label for="ca-ref-years">Years Known</label><input id="ca-ref-years" type="text" name="ref_years_known" placeholder="e.g., 3 years"></div>
+
+                <div class="ck-sub">Skills</div>
+                <div class="field"><label>Reliable transportation?</label><div class="radio-row"><label><input type="radio" name="reliable_transport" value="Yes"> Yes</label><label><input type="radio" name="reliable_transport" value="No"> No</label></div></div>
+                <div class="field"><label>Willing to work a changing schedule?</label><div class="radio-row"><label><input type="radio" name="changing_schedule" value="Yes"> Yes</label><label><input type="radio" name="changing_schedule" value="No"> No</label></div></div>
+
+                <div class="ck-sub">Final</div>
+                <div class="field full"><label for="ca-resume">Upload Resume (PDF/DOC)</label><input id="ca-resume" type="file" name="resume" accept=".pdf,.doc,.docx"></div>
+                <div class="field full"><label for="ca-comments">Additional Comments</label><textarea id="ca-comments" name="additional_comments" rows="3" placeholder="Anything else you would like us to know"></textarea></div>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-ember" style="width:100%">Submit Application</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <div class="light section">
@@ -2276,7 +2406,8 @@ p{margin:0 0 1rem}
     <div class="wrap">
       <div class="contact-grid">
         <div class="form-wrap reveal">
-          <form class="cform" action="https://formspree.io/f/mgvlqywb" method="POST">
+          <form class="cform" action="https://app.cenaskitchen.com/public/forms/contact" method="POST">
+            <input type="hidden" name="_source_page" value="Contact form">
             <div class="fgrid">
               <div class="field"><label for="co-name">Name</label><input id="co-name" name="name" type="text" required></div>
               <div class="field"><label for="co-email">Email</label><input id="co-email" name="email" type="email" required></div>
@@ -2731,15 +2862,36 @@ p{margin:0 0 1rem}
     var grid=document.getElementById('ck-pos-grid');
     var locName=document.getElementById('ck-pos-loc');
     var back=document.getElementById('ck-loc-back');
+    var applyPanel=document.getElementById('ck-apply-panel');
+    var applyLoc=document.getElementById('ck-career-location-hidden');
+    var applyPos=document.getElementById('desired_position_hidden');
+    var applyLabel=document.getElementById('ck-applying-pos');
+    var prevWrap=document.getElementById('prev_location_wrap');
+    var prevInput=document.getElementById('previous_location');
+    var workList=document.getElementById('work-history-list');
+    var addWork=document.getElementById('add-work');
+    var chosenLoc='', chosenName='';
     if(!locStep||!posStep||!grid) return;
+    function showApplication(loc,name,position){
+      if(applyLoc) applyLoc.value=name || loc || '';
+      if(applyPos) applyPos.value=position || '';
+      if(applyLabel) applyLabel.textContent=(position || 'General application') + (name ? ' - ' + name : '');
+      if(applyPanel){
+        applyPanel.classList.remove('ck-hidden');
+        requestAnimationFrame(function(){ applyPanel.scrollIntoView({behavior:'smooth', block:'start'}); });
+      }
+    }
     function show(loc,name){
+      chosenLoc=loc;
+      chosenName=name;
       grid.innerHTML='';
       POSITIONS.forEach(function(p){
-        var a=document.createElement('a');
-        a.className='ck-pos-card';
-        a.href='/apply/'+loc+'?position='+encodeURIComponent(p);
-        a.innerHTML='<span class="ck-pos-name">'+p+'</span><span class="ck-pos-go">Apply &rarr;</span>';
-        grid.appendChild(a);
+        var b=document.createElement('button');
+        b.type='button';
+        b.className='ck-pos-card';
+        b.innerHTML='<span class="ck-pos-name">'+p+'</span><span class="ck-pos-go">Apply &rarr;</span>';
+        b.addEventListener('click',function(){ showApplication(loc,name,p); });
+        grid.appendChild(b);
       });
       locName.textContent=name;
       locStep.classList.add('ck-hidden');
@@ -2749,7 +2901,42 @@ p{margin:0 0 1rem}
     for(var i=0;i<cards.length;i++){
       cards[i].addEventListener('click',function(){ show(this.getAttribute('data-loc'), this.getAttribute('data-name')); });
     }
-    if(back){ back.addEventListener('click',function(){ posStep.classList.add('ck-hidden'); locStep.classList.remove('ck-hidden'); }); }
+    if(back){ back.addEventListener('click',function(){ posStep.classList.add('ck-hidden'); locStep.classList.remove('ck-hidden'); if(applyPanel) applyPanel.classList.add('ck-hidden'); }); }
+    function togglePrevLoc(){
+      var worked=document.querySelector('input[name="worked_before"]:checked');
+      var yes=worked && worked.value==='Yes';
+      if(prevWrap) prevWrap.classList.toggle('ck-hidden',!yes);
+      if(prevInput) prevInput.required=false;
+    }
+    document.querySelectorAll('input[name="worked_before"]').forEach(function(r){ r.addEventListener('change',togglePrevLoc); });
+    if(addWork&&workList){
+      var workIdx=1;
+      addWork.addEventListener('click',function(){
+        workIdx+=1;
+        var first=workList.querySelector('.ck-work-block');
+        if(!first) return;
+        var clone=first.cloneNode(true);
+        clone.dataset.index=workIdx;
+        var title=clone.querySelector('h4');
+        if(title) title.textContent='Employer #'+workIdx;
+        clone.querySelectorAll('input,textarea,select').forEach(function(el){
+          el.name=el.name.replace(/work\d+_/,'work'+workIdx+'_');
+          if(el.type==='checkbox'||el.type==='radio'){ el.checked=false; }
+          else { el.value=''; }
+        });
+        workList.appendChild(clone);
+      });
+    }
+    var qs=new URLSearchParams(window.location.search);
+    var deepLoc=(qs.get('career_location')||'').toLowerCase();
+    var deepPos=qs.get('career_position');
+    if(deepLoc&&deepPos){
+      var pretty=deepLoc.indexOf('copper')>=0?'Copperfield':'Tomball';
+      var locKey=pretty==='Copperfield'?'copperfield':'tomball';
+      show(locKey,pretty);
+      showApplication(locKey,pretty,deepPos);
+    }
+    togglePrevLoc();
   }
   if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',init); } else { init(); }
 })();
