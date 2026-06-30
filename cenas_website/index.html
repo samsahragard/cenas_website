@@ -2467,10 +2467,11 @@ p{margin:0 0 1rem}
       <div class="news">
         <h4>The good stuff</h4>
         <p>Specials, Spirit Day nights and new menu drops &mdash; straight to your inbox.</p>
-        <div id="nl-box">
-          <input id="nl-email" type="email" placeholder="you@email.com" aria-label="Email address">
-          <button class="btn btn-ember" id="nl-btn">Join the list</button>
-        </div>
+        <form id="nl-box" action="https://app.cenaskitchen.com/public/forms/email-list" method="POST">
+          <input id="nl-email" name="email" type="email" placeholder="you@email.com" aria-label="Email address" required>
+          <input type="hidden" name="_source_page" value="https://www.cenaskitchen.com/#footer">
+          <button class="btn btn-ember" id="nl-btn" type="submit">Join the list</button>
+        </form>
       </div>
     </div>
     <div class="foot-bottom">
@@ -2577,11 +2578,11 @@ p{margin:0 0 1rem}
     }
   });
 
-  var nlBtn = document.getElementById('nl-btn');
-  if(nlBtn){
-    nlBtn.addEventListener('click', function(){
-      var box = document.getElementById('nl-box');
-      if(box){ box.innerHTML = '<p style="color:var(--ember);font-weight:700;margin:0">\u00A1Gracias! You\'re on the list.</p>'; }
+  var nlForm = document.getElementById('nl-box');
+  if(nlForm){
+    nlForm.addEventListener('submit', function(){
+      var btn = document.getElementById('nl-btn');
+      if(btn){ btn.disabled = true; btn.textContent = 'Joining...'; }
     });
   }
 
