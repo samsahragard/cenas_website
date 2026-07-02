@@ -1,7 +1,7 @@
 import os
 from urllib.parse import quote
 
-from flask import Flask, Response, jsonify, redirect, request, send_from_directory
+from flask import Flask, Response, redirect, request, send_from_directory
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
@@ -9,7 +9,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 # disk (/data/media/products). The app's corporate-order pages load these
 # images via /media/<filename>, so keep serving them.
 PRODUCT_MEDIA = "/data/media/products"
-MEDIA_ROOT = "/data/media"
+
 
 # Legacy path -> section on the new single-page site (301 permanent).
 REDIRECTS = {
@@ -73,27 +73,6 @@ def create_app():
         # Same behavior as the old site's admin.media route: product images
         # from the persistent disk. Used by the app's corporate-order pages.
         return send_from_directory(PRODUCT_MEDIA, filename)
-
-    @app.route("/media-index-cfa1fb2d631667eb5d8d9fa5")
-    def media_index_temp():
-        # TEMPORARY (token URL): full recursive listing of /data/media so the
-        # files can be backed up off the disk. Remove after recovery.
-        out = []
-        for root, _dirs, files in os.walk(MEDIA_ROOT):
-            for f in files:
-                p = os.path.join(root, f)
-                rel = os.path.relpath(p, MEDIA_ROOT).replace(os.sep, "/")
-                try:
-                    out.append({"path": rel, "size": os.path.getsize(p)})
-                except OSError:
-                    pass
-        return jsonify(sorted(out, key=lambda x: x["path"]))
-
-    @app.route("/media-file-cfa1fb2d631667eb5d8d9fa5/<path:filename>")
-    def media_file_temp(filename):
-        # TEMPORARY (token URL): serve any file under /data/media (not just
-        # products) for the backup download. Remove after recovery.
-        return send_from_directory(MEDIA_ROOT, filename)
 
     @app.route("/favicon.ico")
     def favicon():
