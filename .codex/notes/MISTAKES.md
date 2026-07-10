@@ -36,8 +36,22 @@
 - Submit one approval per browser navigation and verify it in the public feed before starting the next approval.
 - Keep the public catering carousel free of redundant refresh-status copy and use the user-approved faster motion cadence.
 - Cast diagnostic file contents to a plain string before placing them in JSON objects.
+- Pass all four required Chrome scroll fields: `x`, `y`, `scrollX`, and `scrollY`.
+- Hard rule: After one Chrome synthesized-scroll timeout, stop gesture scrolling and use DOM or network evidence.
 
 ## Entries
+
+### 2026-07-10 — Chrome synthesized scrolling timed out again
+- What happened: The correctly shaped upward scroll still timed out in Chrome while trying to bring the production carousel into view.
+- Root cause: The known unreliable synthesized-scroll path was used again on the long public page.
+- Fix: Stop gesture scrolling, promote the rule to a hard rule, and verify timing through the deployed script plus read-only DOM state when available.
+- Rule: After one Chrome synthesized-scroll timeout, stop gesture scrolling and use DOM or network evidence.
+
+### 2026-07-10 — used the wrong Chrome scroll field name
+- What happened: The first live-page upward scroll was rejected because it passed `deltaY` instead of the required `scrollX` and `scrollY` fields.
+- Root cause: A generic wheel-event field was assumed instead of the Chrome control method's exact schema.
+- Fix: Retry once with `x`, `y`, `scrollX: 0`, and the negative `scrollY` value.
+- Rule: Pass all four required Chrome scroll fields: `x`, `y`, `scrollX`, and `scrollY`.
 
 ### 2026-07-10 — local-server diagnostic serialized a rich file object
 - What happened: The local-server check produced a very large JSON object instead of the short stderr string.
