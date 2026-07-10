@@ -10,3 +10,4 @@
 - Preserve the existing Cenas oxblood, cream, gold, Fraunces, and Hanken Grotesque visual language.
 - Recent catering cards load from `https://app.cenaskitchen.com/public/catering-showcase` only when the showcase nears the viewport. The feed is newest-first, cursor-paginated, and contains only explicitly approved derivatives and curated public metadata.
 - The showcase renders three cards on desktop, two on tablet, and one partial card on phones; it pauses for reduced motion, focus, hover, touch interaction, or a visitor's Pause control.
+- Render public-site service: `srv-d28grg2dbo4c73fj2oo0` (`cenas_functional_demo`), with auto-deploy disabled. Showcase code commit `ffbfae2b399388b31b8cf75bed1c81612d35f7e7` was deployed as `dep-d98lu83eo5us73fbcuug` and verified live on 2026-07-10.

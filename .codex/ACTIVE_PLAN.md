@@ -30,7 +30,7 @@ Add a fast, self-updating catering carousel to the public site. It should show a
 - [x] Define the sanitized public feed and approval rule.
 - [x] Implement the feed and lightweight responsive carousel.
 - [x] Verify data safety, performance, reduced motion, and mobile layout.
-- [ ] Commit, deploy, and verify the production site.
+- [x] Commit, deploy, and verify the production site.
 
 ## Verification
 
