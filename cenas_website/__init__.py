@@ -50,6 +50,14 @@ def create_app():
     def home():
         return _page("index.html")
 
+    @app.route("/privacy")
+    def privacy():
+        return _page("privacy.html")
+
+    @app.route("/terms")
+    def terms():
+        return _page("terms.html")
+
     @app.route("/apply/<location>")
     def apply_redirect(location):
         loc = (location or "").strip().lower()

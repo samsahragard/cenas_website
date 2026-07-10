@@ -328,6 +328,11 @@ p{margin:0 0 1rem}
 .field input,.field select,.field textarea{font-family:inherit;font-size:.95rem;padding:.8rem .95rem;border-radius:10px;border:1.5px solid var(--bone-3);background:#fff;color:var(--ink);transition:.2s}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ember);outline:none;box-shadow:0 0 0 3px rgba(233,162,59,.2)}
 .field textarea{resize:vertical;min-height:120px}
+.sms-consent{display:flex;align-items:flex-start;gap:.75rem;margin:.15rem 0 1.15rem;padding:1rem;border:1px solid rgba(178,74,44,.32);border-radius:12px;background:rgba(233,162,59,.1);color:var(--ink);font-size:.88rem;line-height:1.55}
+.sms-consent input[type=checkbox]{width:1.1rem;height:1.1rem;min-height:0;flex:0 0 auto;margin:.16rem 0 0;padding:0;accent-color:var(--oxblood)}
+.sms-consent label{font-weight:500;color:var(--ink);cursor:pointer}
+.sms-consent strong{font-weight:800;color:var(--oxblood)}
+.sms-consent a{font-weight:800;color:var(--oxblood);text-decoration:underline;text-underline-offset:2px}
 .form-note{font-size:.78rem;color:var(--ink-soft);margin-top:1rem;display:flex;gap:.5rem;align-items:flex-start}
 .form-note svg{width:15px;height:15px;color:var(--clay);flex:none;margin-top:2px}
 .form-success{text-align:center;padding:1rem}
@@ -1993,15 +1998,17 @@ p{margin:0 0 1rem}
       <div class="form-wrap reveal d1">
         <form class="cform" action="https://app.cenaskitchen.com/public/forms/catering" method="POST">
           <input type="hidden" name="_source_page" value="Catering quote">
+          <input type="hidden" name="sms_consent_version" value="2026-07-10">
           <div class="fgrid">
             <div class="field"><label for="cat-name">Your name</label><input id="cat-name" name="name" type="text" required></div>
             <div class="field"><label for="cat-email">Email</label><input id="cat-email" name="email" type="email" required></div>
-            <div class="field"><label for="cat-phone">Phone</label><input id="cat-phone" name="phone" type="tel"></div>
+            <div class="field"><label for="cat-phone">Phone</label><input id="cat-phone" name="phone" type="tel" required></div>
             <div class="field"><label for="cat-date">Event date</label><input id="cat-date" name="event_date" type="date"></div>
             <div class="field"><label for="cat-guests">Guests</label><input id="cat-guests" name="guests" type="number" min="1" placeholder="e.g. 40"></div>
             <div class="field"><label for="cat-pkg">Package</label><select id="cat-pkg" name="package"><option>Taco Bar</option><option>Fajita Fiesta</option><option>Fiesta Spread</option><option>Not sure yet</option></select></div>
             <div class="field full"><label for="cat-msg">Anything else?</label><textarea id="cat-msg" name="message" placeholder="Dietary needs, location, timing&hellip;"></textarea></div>
           </div>
+          <div class="sms-consent"><input id="cat-sms-opt-in" name="sms_opt_in" type="checkbox" value="yes"><label for="cat-sms-opt-in"><strong>Optional text updates.</strong> By checking this box, I agree to receive informational text messages from Cenas Kitchen at the mobile number provided about this submission and related follow-up. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out. Consent is not a condition of purchase or submitting this form. See our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</label></div>
           <button type="submit" class="btn btn-ember" style="width:100%">Request a quote</button>
           
         </form>
@@ -2060,12 +2067,13 @@ p{margin:0 0 1rem}
           <input type="hidden" name="_subject" value="New Catering Request &mdash; Tomball">
           <input type="hidden" name="location" value="Tomball">
           <input type="hidden" name="_source_page" value="Catering request - Tomball">
+          <input type="hidden" name="sms_consent_version" value="2026-07-10">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div class="fgrid">
             <div class="field"><label for="ct-name">Your name</label><input id="ct-name" name="name" type="text" required></div>
             <div class="field"><label for="ct-email">Email</label><input id="ct-email" name="email" type="email" required></div>
             <div class="field"><label for="ct-phone">Phone number</label><input id="ct-phone" name="phone" type="tel" required></div>
-            <div class="field"><label for="ct-contact">Best way to contact you</label><select id="ct-contact" name="contact_preference" required><option value="" disabled selected>Select</option><option>Email</option><option>Phone Call</option><option>Text</option></select></div>
+            <div class="field"><label for="ct-contact">Best way to contact you</label><select id="ct-contact" name="contact_preference" required><option value="" disabled selected>Select</option><option>Email</option><option>Phone Call</option></select></div>
             <div class="field full"><label for="ct-addr">Event address</label><input id="ct-addr" name="event_address" type="text" required></div>
             <div class="field"><label for="ct-date">Event date</label><input id="ct-date" name="event_date" type="date" required></div>
             <div class="field"><label for="ct-guests">Number of guests</label><input id="ct-guests" name="guests" type="number" min="1" required></div>
@@ -2077,6 +2085,7 @@ p{margin:0 0 1rem}
             <div class="field"><label for="ct-tort">Preferred tortilla</label><input id="ct-tort" name="tortilla" type="text" placeholder="Flour, corn" required></div>
             <div class="field full"><label for="ct-info">Additional info or special requests</label><textarea id="ct-info" name="additional_info"></textarea></div>
           </div>
+          <div class="sms-consent"><input id="ct-sms-opt-in" name="sms_opt_in" type="checkbox" value="yes"><label for="ct-sms-opt-in"><strong>Optional text updates.</strong> By checking this box, I agree to receive informational text messages from Cenas Kitchen at the mobile number provided about this catering request and related follow-up. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out. Consent is not a condition of purchase or submitting this form. See our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</label></div>
           <button type="submit" class="btn btn-ember" style="width:100%">Submit request</button>
         </form>
       </div>
@@ -2105,12 +2114,13 @@ p{margin:0 0 1rem}
           <input type="hidden" name="_subject" value="New Catering Request &mdash; Copperfield">
           <input type="hidden" name="location" value="Copperfield">
           <input type="hidden" name="_source_page" value="Catering request - Copperfield">
+          <input type="hidden" name="sms_consent_version" value="2026-07-10">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div class="fgrid">
             <div class="field"><label for="cc-name">Your name</label><input id="cc-name" name="name" type="text" required></div>
             <div class="field"><label for="cc-email">Email</label><input id="cc-email" name="email" type="email" required></div>
             <div class="field"><label for="cc-phone">Phone number</label><input id="cc-phone" name="phone" type="tel" required></div>
-            <div class="field"><label for="cc-contact">Best way to contact you</label><select id="cc-contact" name="contact_preference" required><option value="" disabled selected>Select</option><option>Email</option><option>Phone Call</option><option>Text</option></select></div>
+            <div class="field"><label for="cc-contact">Best way to contact you</label><select id="cc-contact" name="contact_preference" required><option value="" disabled selected>Select</option><option>Email</option><option>Phone Call</option></select></div>
             <div class="field full"><label for="cc-addr">Event address</label><input id="cc-addr" name="event_address" type="text" required></div>
             <div class="field"><label for="cc-date">Event date</label><input id="cc-date" name="event_date" type="date" required></div>
             <div class="field"><label for="cc-guests">Number of guests</label><input id="cc-guests" name="guests" type="number" min="1" required></div>
@@ -2122,6 +2132,7 @@ p{margin:0 0 1rem}
             <div class="field"><label for="cc-tort">Preferred tortilla</label><input id="cc-tort" name="tortilla" type="text" placeholder="Flour, corn" required></div>
             <div class="field full"><label for="cc-info">Additional info or special requests</label><textarea id="cc-info" name="additional_info"></textarea></div>
           </div>
+          <div class="sms-consent"><input id="cc-sms-opt-in" name="sms_opt_in" type="checkbox" value="yes"><label for="cc-sms-opt-in"><strong>Optional text updates.</strong> By checking this box, I agree to receive informational text messages from Cenas Kitchen at the mobile number provided about this catering request and related follow-up. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out. Consent is not a condition of purchase or submitting this form. See our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</label></div>
           <button type="submit" class="btn btn-ember" style="width:100%">Submit request</button>
         </form>
       </div>
@@ -2187,6 +2198,7 @@ p{margin:0 0 1rem}
       <div class="form-wrap reveal" style="max-width:52rem;margin:0 auto">
         <form class="cform" action="https://app.cenaskitchen.com/public/forms/spirit" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_source_page" value="Spirit Day application">
+          <input type="hidden" name="sms_consent_version" value="2026-07-10">
           <div class="fgrid">
             <div class="field full"><label for="sd-org">Organization name</label><input id="sd-org" name="organization" type="text" required></div>
             <div class="field"><label for="sd-tax">Tax ID</label><input id="sd-tax" name="tax_id" type="text" required></div>
@@ -2202,6 +2214,7 @@ p{margin:0 0 1rem}
             <div class="field"><label for="sd-payable">Check payable to</label><input id="sd-payable" name="check_payable_to" type="text" required></div>
             <div class="field full"><label for="sd-addr">Organization address</label><input id="sd-addr" name="org_address" type="text" required></div>
           </div>
+          <div class="sms-consent"><input id="sd-sms-opt-in" name="sms_opt_in" type="checkbox" value="yes"><label for="sd-sms-opt-in"><strong>Optional text updates.</strong> By checking this box, I agree to receive informational text messages from Cenas Kitchen at the mobile number provided about this Spirit Day application and related follow-up. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out. Consent is not a condition of purchase or submitting this form. See our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</label></div>
           <button type="submit" class="btn btn-ember" style="width:100%">Submit application</button>
         </form>
       </div>
@@ -2248,6 +2261,7 @@ p{margin:0 0 1rem}
       <div class="form-wrap reveal" style="max-width:54rem;margin:0 auto">
         <form class="cform" action="https://app.cenaskitchen.com/public/forms/donation" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_source_page" value="Donation request">
+          <input type="hidden" name="sms_consent_version" value="2026-07-10">
           <div class="fgrid">
 
             <div class="form-section"><h3>How can we help</h3><span class="ln"></span></div>
@@ -2284,6 +2298,7 @@ p{margin:0 0 1rem}
             <div class="field full"><label for="dn-comments">Additional comments <em style="font-weight:400;font-style:normal;color:var(--ink-soft)">— optional</em></label><textarea id="dn-comments" name="comments"></textarea></div>
 
           </div>
+          <div class="sms-consent"><input id="dn-sms-opt-in" name="sms_opt_in" type="checkbox" value="yes"><label for="dn-sms-opt-in"><strong>Optional text updates.</strong> By checking this box, I agree to receive informational text messages from Cenas Kitchen at the mobile number provided about this donation request and related follow-up. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out. Consent is not a condition of purchase or submitting this form. See our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</label></div>
           <button type="submit" class="btn btn-ember" style="width:100%">Submit request</button>
         </form>
       </div>
@@ -2400,6 +2415,7 @@ p{margin:0 0 1rem}
             <input type="hidden" name="_source_page" value="Careers application">
             <input type="hidden" name="location" id="ck-career-location-hidden">
             <input type="hidden" name="desired_position" id="desired_position_hidden">
+            <input type="hidden" name="sms_consent_version" value="2026-07-10">
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <div class="ck-applying">Applying for: <strong id="ck-applying-pos">General application</strong></div>
 
@@ -2492,6 +2508,7 @@ p{margin:0 0 1rem}
               </div>
             </fieldset>
 
+            <div class="sms-consent"><input id="ca-sms-opt-in" name="sms_opt_in" type="checkbox" value="yes"><label for="ca-sms-opt-in"><strong>Optional text updates.</strong> By checking this box, I agree to receive informational text messages from Cenas Kitchen at the mobile number provided about this job application and related follow-up. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out. Consent is not a condition of applying for employment. See our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.</label></div>
             <button type="submit" class="btn btn-ember" style="width:100%">Submit Application</button>
           </form>
         </div>
@@ -2587,7 +2604,7 @@ p{margin:0 0 1rem}
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="yr"></span> Cenas Kitchen, LLC. Made in Houston.</span>
-      <span class="ftiny"><a href="#" data-ext>Privacy</a><a href="#" data-ext>Accessibility</a><a href="#contact" data-link="contact">Contact</a></span>
+      <span class="ftiny"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="#" data-ext>Accessibility</a><a href="#contact" data-link="contact">Contact</a></span>
     </div>
   </div>
 </footer>
