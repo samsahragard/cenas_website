@@ -2308,20 +2308,33 @@ p{margin:0 0 1rem}
   .ck-loc-name{font-weight:800;font-size:1.15rem;letter-spacing:.01em}
   .ck-loc-addr{font-size:.82rem;color:rgba(243,231,209,.72)}
   .ck-loc-tag{align-self:flex-start;margin-top:.4rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;padding:.25rem .6rem;border-radius:100px;background:var(--ember);color:#3a1409}
-  .ck-pos-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-  .ck-pos-card{position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.55rem;text-align:center;text-decoration:none;padding:1.35rem .75rem 1.1rem;border-radius:110px 110px 14px 14px;background:linear-gradient(172deg,#faf3e2,var(--bone-2) 52%,#eee1c5);border:1.5px solid var(--bone-3);color:var(--ink);box-shadow:0 4px 14px rgba(40,12,15,.12);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;animation:ckPosIn .55s cubic-bezier(.2,.7,.3,1) both}
-  .ck-pos-card::before{content:"";position:absolute;inset:5px;border-radius:inherit;border:1px solid rgba(233,162,59,.38);pointer-events:none;transition:border-color .3s}
-  .ck-pos-card::after{content:"";position:absolute;top:0;left:-135%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,246,230,.55),transparent);transform:skewX(-18deg);transition:left .65s cubic-bezier(.4,.1,.2,1);pointer-events:none;z-index:1}
-  .ck-pos-card:hover{transform:translateY(-5px);border-color:var(--ember);box-shadow:0 18px 36px rgba(233,162,59,.32),0 6px 16px rgba(40,12,15,.2)}
+  .ck-pos-grid{display:grid;gap:1rem;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ck-pos-card{--role-x1:-2px;--role-y1:-2px;--role-r1:-.5deg;--role-x2:3px;--role-y2:-5px;--role-r2:.8deg;position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;align-items:center;min-width:0;min-height:310px;text-align:center;text-decoration:none;padding:0 .72rem 1rem;border-radius:120px 120px 14px 14px;background:linear-gradient(172deg,#faf3e2,var(--bone-2) 58%,#eee1c5);border:1.5px solid var(--bone-3);color:var(--ink);box-shadow:0 4px 14px rgba(40,12,15,.12);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;animation:ckPosIn .55s cubic-bezier(.2,.7,.3,1) both}
+  .ck-pos-card::before{content:"";position:absolute;inset:5px;border-radius:inherit;border:1px solid rgba(233,162,59,.38);pointer-events:none;transition:border-color .3s;z-index:4}
+  .ck-pos-card::after{content:"";position:absolute;top:0;left:-135%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,246,230,.55),transparent);transform:skewX(-18deg);transition:left .65s cubic-bezier(.4,.1,.2,1);pointer-events:none;z-index:5}
+  .ck-pos-card:hover,.ck-pos-card:focus-visible{transform:translateY(-5px);border-color:var(--ember);box-shadow:0 18px 36px rgba(233,162,59,.32),0 6px 16px rgba(40,12,15,.2)}
+  .ck-pos-card:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
   .ck-pos-card:hover::before{border-color:rgba(233,162,59,.75)}
   .ck-pos-card:hover::after{left:175%}
-  .ck-pos-ico{width:54px;height:54px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 32% 26%,var(--oxblood-soft),var(--oxblood) 72%);color:var(--ember);border:1.5px solid rgba(233,162,59,.55);box-shadow:inset 0 0 14px rgba(0,0,0,.35),0 4px 10px rgba(40,12,15,.28);transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
-  .ck-pos-ico svg{width:26px;height:26px}
-  .ck-pos-card:hover .ck-pos-ico{transform:translateY(-2px) scale(1.09) rotate(-5deg);box-shadow:inset 0 0 12px rgba(0,0,0,.3),0 9px 20px rgba(233,162,59,.45)}
-  .ck-pos-name{font-family:var(--font-display);font-weight:800;font-size:1.12rem;line-height:1.12;letter-spacing:.01em}
+  .ck-pos-art{position:relative;z-index:0;display:block;width:100%;height:clamp(190px,30vw,240px);overflow:hidden;border-radius:116px 116px 4px 4px;background:#f3e7d1}
+  .ck-pos-art::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(to bottom,transparent,#f5ead4 88%);pointer-events:none}
+  .ck-pos-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;transform-origin:50% 88%;filter:saturate(.96) contrast(1.015);will-change:transform}
+  .ck-pos-copy{position:relative;z-index:3;display:flex;flex:1;min-width:0;min-height:58px;flex-direction:column;align-items:center;justify-content:flex-end;gap:.38rem;width:100%;padding-top:.42rem}
+  .ck-pos-name{max-width:100%;font-family:var(--font-display);font-weight:800;font-size:1.12rem;line-height:1.12;letter-spacing:.01em;overflow-wrap:anywhere}
   .ck-pos-go{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);opacity:.7;transition:opacity .25s,letter-spacing .25s}
   .ck-pos-card:hover .ck-pos-go{opacity:1;letter-spacing:.22em}
+  .ck-pos-card[data-role="cook"]{--role-x1:-3px;--role-y1:-7px;--role-r1:-1.4deg;--role-x2:3px;--role-y2:-4px;--role-r2:1.4deg}
+  .ck-pos-card[data-role="bartender"]{--role-x1:-5px;--role-y1:-2px;--role-r1:-1.8deg;--role-x2:5px;--role-y2:-2px;--role-r2:1.8deg}
+  .ck-pos-card[data-role="host"]{--role-x1:-2px;--role-y1:-3px;--role-r1:-.6deg;--role-x2:3px;--role-y2:-5px;--role-r2:.7deg}
+  .ck-pos-card[data-role="to-go"]{--role-x1:0;--role-y1:-7px;--role-r1:-.4deg;--role-x2:2px;--role-y2:-4px;--role-r2:.7deg}
+  .ck-pos-card[data-role="expo"]{--role-x1:-4px;--role-y1:-2px;--role-r1:-1deg;--role-x2:3px;--role-y2:-4px;--role-r2:.7deg}
+  .ck-pos-card[data-role="dishwasher"]{--role-x1:-3px;--role-y1:-1px;--role-r1:-.5deg;--role-x2:6px;--role-y2:-2px;--role-r2:.5deg}
+  .ck-pos-card[data-role="prep"]{--role-x1:-2px;--role-y1:-6px;--role-r1:-1.2deg;--role-x2:2px;--role-y2:-1px;--role-r2:1deg}
+  .ck-pos-card[data-role="manager"]{--role-x1:-1px;--role-y1:-3px;--role-r1:-.4deg;--role-x2:3px;--role-y2:-5px;--role-r2:.7deg}
+  .ck-pos-card:hover .ck-pos-art img,.ck-pos-card:focus-visible .ck-pos-art img,.ck-pos-card.ck-pos-action .ck-pos-art img{animation:ckRoleGesture .72s cubic-bezier(.2,.72,.25,1) both}
+  .ck-pos-card.ck-pos-action .ck-pos-art img{animation-duration:.52s}
   @keyframes ckPosIn{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:none}}
+  @keyframes ckRoleGesture{0%,100%{transform:translate(0,0) rotate(0) scale(1)}28%{transform:translate(var(--role-x1),var(--role-y1)) rotate(var(--role-r1)) scale(1.018)}62%{transform:translate(var(--role-x2),var(--role-y2)) rotate(var(--role-r2)) scale(1.032)}}
   .ck-back-btn{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--ember);text-decoration:underline;padding:0;margin-left:auto}
   .ck-application-panel{max-width:58rem;margin:2rem auto 0}
   .ck-application-panel .form-wrap{background:var(--bone-2);color:var(--ink)}
@@ -2344,6 +2357,9 @@ p{margin:0 0 1rem}
   .ck-work-block h4{font-family:var(--font-body);font-weight:900;color:var(--oxblood);margin:0 0 .8rem}
   #add-work{border:1.5px solid var(--oxblood);color:var(--oxblood);border-radius:999px;padding:.65rem 1rem;font-weight:900;background:#fff;margin:.4rem 0 1rem}
   @media(max-width:760px){.ck-career-form fieldset{padding:1rem}.ck-application-panel{margin-top:1.2rem}}
+  @media(max-width:620px){.ck-pos-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.ck-pos-card{min-height:286px;padding-left:.55rem;padding-right:.55rem}.ck-pos-card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - .4rem)}}
+  @media(max-width:340px){.ck-pos-grid{grid-template-columns:1fr}.ck-pos-card:last-child:nth-child(odd){grid-column:auto;width:100%}}
+  @media(prefers-reduced-motion:reduce){.ck-pos-card,.ck-pos-card::before,.ck-pos-card::after,.ck-pos-go{transition:none!important}.ck-pos-card:hover,.ck-pos-card:focus-visible{transform:none!important}.ck-pos-card:hover .ck-pos-art img,.ck-pos-card:focus-visible .ck-pos-art img,.ck-pos-card.ck-pos-action .ck-pos-art img{animation:none!important}}
 </style>
 <section class="page" id="page-careers">
   <div class="dark phead glow"><div class="wrap"><span class="eyebrow" style="justify-content:center;color:var(--ember)">Join us</span><h1>Work at Cenas</h1><p class="lead">We hire good people and treat them like family. Tips paid out, room to grow.</p></div></div>
@@ -2378,7 +2394,7 @@ p{margin:0 0 1rem}
       </div>
 
       <div id="ck-apply-panel" class="ck-application-panel ck-hidden">
-        <div class="sec-head center" style="margin-bottom:1.2rem"><span class="eyebrow" style="color:var(--ember)">Application</span><h2 style="color:var(--bone)">Tell us about you</h2></div>
+        <div class="sec-head center" style="margin-bottom:1.2rem"><span class="eyebrow" style="color:var(--ember)">Application</span><h2 id="ck-apply-title" tabindex="-1" style="color:var(--bone)">Tell us about you</h2></div>
         <div class="form-wrap">
           <form class="cform ck-career-form" action="https://app.cenaskitchen.com/public/forms/career" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_source_page" value="Careers application">
@@ -2953,17 +2969,20 @@ p{margin:0 0 1rem}
 (function(){
   function init(){
     var POSITIONS=["Server","Cook","Bartender","Host","To-Go Associate","Expo","Dishwasher","Prep","Manager"];
-    var _i='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">';
-    var ICONS={
-      "Server":_i+'<path d="M3 17h18"/><path d="M5 17a7 7 0 0 1 14 0"/><path d="M12 10v-1"/><circle cx="12" cy="8" r="1"/><path d="M7 20h10"/></svg>',
-      "Cook":_i+'<path d="M7 9a4 4 0 0 1 .5-7.9A4.5 4.5 0 0 1 12 3a4.5 4.5 0 0 1 4.5-1.9A4 4 0 0 1 17 9v6H7Z"/><path d="M7 15v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-4"/><path d="M10 12v3M14 12v3"/></svg>',
-      "Bartender":_i+'<path d="M5 4h14l-7 8Z"/><path d="M12 12v7"/><path d="M8 21h8"/><path d="M8 7h8"/></svg>',
-      "Host":_i+'<path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M2 21h20"/><circle cx="13" cy="12" r="1"/><path d="M20 8v13"/></svg>',
-      "To-Go Associate":_i+'<path d="M6 8h12l1.5 12.5a1 1 0 0 1-1 1.1H5.5a1 1 0 0 1-1-1.1Z"/><path d="M9 11V7a3 3 0 0 1 6 0v4"/></svg>',
-      "Expo":_i+'<path d="M4 17a8 8 0 0 1 16 0Z"/><path d="M12 9V7"/><circle cx="12" cy="6" r="1"/><path d="M2 20h20"/></svg>',
-      "Dishwasher":_i+'<circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="3.5"/><path d="M20 3l.7 1.8L22.5 5.5l-1.8.7L20 8l-.7-1.8L17.5 5.5l1.8-.7Z"/></svg>',
-      "Prep":_i+'<path d="M3 14 14.5 2.5a1.7 1.7 0 0 1 2.4 2.4L8 14H3Z"/><path d="M8 14l-4.5 7"/><path d="M13 9l2 2"/></svg>',
-      "Manager":_i+'<path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1Z"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14l2 2 4-4"/></svg>'
+    var ROLE_ART={
+      "Server":"role-server.webp",
+      "Cook":"role-cook.webp",
+      "Bartender":"role-bartender.webp",
+      "Host":"role-host.webp",
+      "To-Go Associate":"role-to-go.webp",
+      "Expo":"role-expo.webp",
+      "Dishwasher":"role-dishwasher.webp",
+      "Prep":"role-prep.webp",
+      "Manager":"role-manager.webp"
+    };
+    var ROLE_SLUG={
+      "Server":"server","Cook":"cook","Bartender":"bartender","Host":"host","To-Go Associate":"to-go",
+      "Expo":"expo","Dishwasher":"dishwasher","Prep":"prep","Manager":"manager"
     };
     var locStep=document.getElementById('ck-loc-step');
     var posStep=document.getElementById('ck-pos-step');
@@ -2974,22 +2993,33 @@ p{margin:0 0 1rem}
     var applyLoc=document.getElementById('ck-career-location-hidden');
     var applyPos=document.getElementById('desired_position_hidden');
     var applyLabel=document.getElementById('ck-applying-pos');
+    var applyTitle=document.getElementById('ck-apply-title');
     var prevWrap=document.getElementById('prev_location_wrap');
     var prevInput=document.getElementById('previous_location');
     var workList=document.getElementById('work-history-list');
     var addWork=document.getElementById('add-work');
-    var chosenLoc='', chosenName='';
+    var chosenLoc='', chosenName='', applyTimer=0, activeAction=null;
     if(!locStep||!posStep||!grid) return;
+    function cancelPendingApplication(){
+      window.clearTimeout(applyTimer);
+      applyTimer=0;
+      if(activeAction){ activeAction.classList.remove('ck-pos-action'); activeAction=null; }
+    }
     function showApplication(loc,name,position){
       if(applyLoc) applyLoc.value=name || loc || '';
       if(applyPos) applyPos.value=position || '';
       if(applyLabel) applyLabel.textContent=(position || 'General application') + (name ? ' - ' + name : '');
       if(applyPanel){
         applyPanel.classList.remove('ck-hidden');
-        requestAnimationFrame(function(){ applyPanel.scrollIntoView({behavior:'smooth', block:'start'}); });
+        requestAnimationFrame(function(){
+          var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if(applyTitle) applyTitle.focus({preventScroll:true});
+          applyPanel.scrollIntoView({behavior:reduced?'auto':'smooth', block:'start'});
+        });
       }
     }
-    function show(loc,name){
+    function show(loc,name,focusFirst){
+      cancelPendingApplication();
       chosenLoc=loc;
       chosenName=name;
       grid.innerHTML='';
@@ -2997,20 +3027,52 @@ p{margin:0 0 1rem}
         var b=document.createElement('button');
         b.type='button';
         b.className='ck-pos-card';
+        b.setAttribute('data-role',ROLE_SLUG[p]||'role');
+        b.setAttribute('aria-label','Apply for '+p+' at '+name);
         b.style.animationDelay=(idx*60)+'ms';
-        b.innerHTML='<span class="ck-pos-ico">'+(ICONS[p]||'')+'</span><span class="ck-pos-name">'+p+'</span><span class="ck-pos-go">Apply &rarr;</span>';
-        b.addEventListener('click',function(){ showApplication(loc,name,p); });
+        b.innerHTML='<span class="ck-pos-art" aria-hidden="true"><img src="/static/images/careers/'+ROLE_ART[p]+'" alt="" width="768" height="1536" loading="lazy" decoding="async"></span><span class="ck-pos-copy"><span class="ck-pos-name">'+p+'</span><span class="ck-pos-go">Apply &rarr;</span></span>';
+        b.addEventListener('click',function(){
+          var card=this;
+          var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          cancelPendingApplication();
+          if(reduced){ showApplication(loc,name,p); return; }
+          card.classList.remove('ck-pos-action');
+          void card.offsetWidth;
+          card.classList.add('ck-pos-action');
+          activeAction=card;
+          applyTimer=window.setTimeout(function(){
+            card.classList.remove('ck-pos-action');
+            activeAction=null;
+            applyTimer=0;
+            showApplication(loc,name,p);
+          },420);
+        });
         grid.appendChild(b);
       });
       locName.textContent=name;
       locStep.classList.add('ck-hidden');
       posStep.classList.remove('ck-hidden');
+      if(focusFirst!==false){
+        requestAnimationFrame(function(){
+          var firstCard=grid.querySelector('.ck-pos-card');
+          if(firstCard) firstCard.focus({preventScroll:true});
+        });
+      }
     }
     var cards=document.querySelectorAll('.ck-loc-card');
     for(var i=0;i<cards.length;i++){
       cards[i].addEventListener('click',function(){ show(this.getAttribute('data-loc'), this.getAttribute('data-name')); });
     }
-    if(back){ back.addEventListener('click',function(){ posStep.classList.add('ck-hidden'); locStep.classList.remove('ck-hidden'); if(applyPanel) applyPanel.classList.add('ck-hidden'); }); }
+    if(back){ back.addEventListener('click',function(){
+      cancelPendingApplication();
+      posStep.classList.add('ck-hidden');
+      locStep.classList.remove('ck-hidden');
+      if(applyPanel) applyPanel.classList.add('ck-hidden');
+      requestAnimationFrame(function(){
+        var returnCard=document.querySelector('.ck-loc-card[data-loc="'+chosenLoc+'"]');
+        if(returnCard) returnCard.focus({preventScroll:true});
+      });
+    }); }
     function togglePrevLoc(){
       var worked=document.querySelector('input[name="worked_before"]:checked');
       var yes=worked && worked.value==='Yes';
@@ -3042,7 +3104,7 @@ p{margin:0 0 1rem}
     if(deepLoc&&deepPos){
       var pretty=deepLoc.indexOf('copper')>=0?'Copperfield':'Tomball';
       var locKey=pretty==='Copperfield'?'copperfield':'tomball';
-      show(locKey,pretty);
+      show(locKey,pretty,false);
       showApplication(locKey,pretty,deepPos);
     }
     togglePrevLoc();
