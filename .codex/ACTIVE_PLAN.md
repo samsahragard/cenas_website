@@ -9,6 +9,7 @@ Add a fast, self-updating catering carousel to the public site. It should show a
 - The public site is a single-page Flask app served from `cenas_website/index.html`.
 - Driver delivery photos originate in the operations app and may include private proof such as maps, addresses, or receipts.
 - The public feed must expose only explicitly suitable food/setup photos and sanitized event metadata.
+- People may appear when the presented food setup is the subject; reject maps, boxed/bagged deliveries, receipts, non-setup evidence, and unusable/corrupt previews.
 - Performance should rely on small initial payloads, lazy image decoding, cursor pagination, and reduced-motion support.
 
 ## Files likely involved
@@ -31,6 +32,7 @@ Add a fast, self-updating catering carousel to the public site. It should show a
 - [x] Implement the feed and lightweight responsive carousel.
 - [x] Verify data safety, performance, reduced motion, and mobile layout.
 - [x] Commit, deploy, and verify the production site.
+- [x] Review the full eligible backlog and populate all qualifying setups with trustworthy guest counts.
 
 ## Verification
 
@@ -38,6 +40,7 @@ Add a fast, self-updating catering carousel to the public site. It should show a
 - Flask route checks and public-site markup checks.
 - Browser verification at phone and desktop widths with no console/network errors.
 - Production checks for newest-first data and lazy older-page loading.
+- Backlog audit: 39 eligible current delivery photos reviewed across two pages; nine qualifying setups live, with one otherwise-usable setup withheld because its source order had no guest count.
 
 ## Rollback plan
 

@@ -29,8 +29,55 @@
 - Hard rule: Never query an assumed framework path; resolve every target from `rg --files` or an already-confirmed path first.
 - Hard rule: Never make an optional `rg` discovery a required-success command; explicitly handle its no-match exit before running it.
 - Do not click non-interactive headings to force long-page scrolling in Chrome; use keyboard navigation or network-level verification.
+- Do not call a history carousel complete after publishing only sample records; populate the safe backlog and verify older-page coverage.
+- For the catering carousel, allow people when the food setup is the subject; reject maps, boxed/bagged deliveries, receipts, paperwork, and non-setup evidence.
+- Use the browser's documented user-tab attachment method; do not infer a `tabs.claim()` helper.
+- Use the admin template's exact `.cs-photo` selector; do not infer private preview URL substrings.
+- Submit one approval per browser navigation and verify it in the public feed before starting the next approval.
 
 ## Entries
+
+### 2026-07-10 — chained a second approval before redirect settled
+- What happened: In each two-item browser batch, the first approval reached production but the second did not, even though the helper returned metadata for both.
+- Root cause: The button click resolved before the post-approval redirect fully settled, so the next form interaction ran against the outgoing document and was lost.
+- Fix: Resubmit the two missing approvals one at a time in separate browser calls, then verify each in the public feed.
+- Rule: Submit one approval per browser navigation and verify it in the public feed before starting the next approval.
+
+### 2026-07-10 — candidate-audit search included nonexistent paths
+- What happened: A delegated read-only audit started with an overly broad `rg` command that included nonexistent paths and produced unusable output.
+- Root cause: The audit did not first constrain its search to paths returned by file discovery.
+- Fix: It switched to targeted reads of confirmed route, service, and template files.
+- Rule: Never query an assumed framework path; resolve every target from `rg --files` or an already-confirmed path first.
+
+### 2026-07-10 — candidate-audit PowerShell regex quoting failed
+- What happened: A delegated PowerShell regex search failed because its quoting was not valid for the active shell.
+- Root cause: Regex punctuation and quotes were not isolated in a single-quoted PowerShell argument.
+- Fix: It abandoned the brittle regex and used targeted source reads.
+- Rule: Use single-quoted PowerShell arguments for `rg` patterns containing quotes or backslashes.
+
+### 2026-07-10 — inferred the candidate-image URL pattern
+- What happened: The candidate inventory found all 23 publish forms but zero images because it searched for an assumed preview URL substring.
+- Root cause: The private image route pattern was inferred instead of using the template's stable `img.cs-photo` class.
+- Fix: Use the audited `.cs-photo` selector and pair each image with its same-index publish form.
+- Rule: Use the admin template's exact `.cs-photo` selector; do not infer private preview URL substrings.
+
+### 2026-07-10 — inferred a nonexistent Chrome tab-claim helper
+- What happened: Reattaching the signed-in catering tab failed because `chrome.tabs.claim()` does not exist in this browser runtime.
+- Root cause: The tab-attachment method was inferred instead of using the previously documented user-tab API.
+- Fix: Inspect the available browser/user-tab methods once and use the supported attachment call without resetting the browser.
+- Rule: Use the browser's documented user-tab attachment method; do not infer a `tabs.claim()` helper.
+
+### 2026-07-10 — over-restricted catering photos containing people
+- What happened: The review criteria excluded every photo containing a person, reducing the usable catering history more than Sam intended.
+- Root cause: A stricter privacy assumption was applied without preserving the user's actual visual goal: showing presented food setups.
+- Fix: Allow people when a visible catering setup is the photo's subject, while continuing to reject maps, boxed/bagged deliveries, receipts, paperwork, and non-setup proof.
+- Rule: For the catering carousel, allow people when the food setup is the subject; reject maps, boxed/bagged deliveries, receipts, paperwork, and non-setup evidence.
+
+### 2026-07-10 — shipped only two carousel photos
+- What happened: The live catering carousel contained only two manually approved examples even though the requested experience was a substantial newest-to-oldest catering history.
+- Root cause: Successful end-to-end validation with two records was mistaken for sufficient production population.
+- Fix: Review the remaining eligible delivery-photo backlog, publish every privacy-safe food/setup image with conservative metadata, and verify both the live count and older traversal.
+- Rule: Do not call a history carousel complete after publishing only sample records; populate the safe backlog and verify older-page coverage.
 
 ### 2026-07-10 — heading click did not force lazy-load scrolling
 - What happened: Clicking the carousel heading to bring the lazy section into view exceeded the Chrome selector/CDP deadline.
