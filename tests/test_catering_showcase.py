@@ -15,6 +15,8 @@ class CateringShowcasePageTests(unittest.TestCase):
         page = response.get_data(as_text=True)
         self.assertIn('id="recent-caterings"', page)
         self.assertIn("Houston keeps us catering", page)
+        self.assertNotIn("Newest first", page)
+        self.assertNotIn("catering-showcase-kicker", page)
         self.assertIn('data-feed-url="https://app.cenaskitchen.com/public/catering-showcase"', page)
         self.assertIn('src="/static/js/catering_showcase.js" defer', page)
 
@@ -29,6 +31,7 @@ class CateringShowcasePageTests(unittest.TestCase):
         self.assertIn("loading = 'lazy'", script)
         self.assertIn("next_cursor", script)
         self.assertIn("atRightEdge", script)
+        self.assertIn("var AUTOPLAY_DELAY = 4000;", script)
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@
   var retryAfter = 0;
   var failureCount = 0;
   var PAGE_SIZE = 6;
-  var AUTOPLAY_DELAY = 5600;
+  var AUTOPLAY_DELAY = 4000;
 
   function setStatus(message) {
     status.textContent = message || '';

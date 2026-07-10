@@ -34,8 +34,22 @@
 - Use the browser's documented user-tab attachment method; do not infer a `tabs.claim()` helper.
 - Use the admin template's exact `.cs-photo` selector; do not infer private preview URL substrings.
 - Submit one approval per browser navigation and verify it in the public feed before starting the next approval.
+- Keep the public catering carousel free of redundant refresh-status copy and use the user-approved faster motion cadence.
+- Cast diagnostic file contents to a plain string before placing them in JSON objects.
 
 ## Entries
+
+### 2026-07-10 — local-server diagnostic serialized a rich file object
+- What happened: The local-server check produced a very large JSON object instead of the short stderr string.
+- Root cause: `Get-Content` was embedded directly in a conditional property and PowerShell serialized its extended file metadata.
+- Fix: The listener and server status were already confirmed; future diagnostics will cast content to a plain string or omit it.
+- Rule: Cast diagnostic file contents to a plain string before placing them in JSON objects.
+
+### 2026-07-10 — catering badge and motion cadence missed the preferred feel
+- What happened: The live carousel still showed the redundant `Newest first · refreshed automatically` badge and advanced too slowly for the intended moving-gallery effect.
+- Root cause: The validation cadence and explanatory copy were treated as final visual choices instead of checking whether the motion felt active enough on the live page.
+- Fix: Remove the badge and shorten the autoplay interval, then verify the live carousel advances at the new cadence.
+- Rule: Keep the public catering carousel free of redundant refresh-status copy and use the user-approved faster motion cadence.
 
 ### 2026-07-10 — chained a second approval before redirect settled
 - What happened: In each two-item browser batch, the first approval reached production but the second did not, even though the helper returned metadata for both.
