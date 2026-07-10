@@ -569,6 +569,41 @@ p{margin:0 0 1rem}
 #page-catering .pack{transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s,border-color .35s}
 #page-catering .pack:hover{transform:translateY(-6px);box-shadow:0 26px 52px rgba(60,16,20,.22);border-color:var(--ember)}
 #page-catering .pack.feat:hover{box-shadow:0 30px 60px rgba(60,16,20,.3)}
+.catering-showcase-section{padding-top:0;overflow:hidden}
+.catering-showcase{position:relative;padding:clamp(1.4rem,4vw,2.6rem);overflow:hidden;border:1px solid rgba(233,162,59,.36);border-radius:26px;background:radial-gradient(circle at 88% 8%,rgba(233,162,59,.16),transparent 30%),linear-gradient(145deg,#3f1117 0%,#66191f 58%,#351015 100%);box-shadow:0 26px 60px rgba(60,16,20,.2)}
+.catering-showcase::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 32%,rgba(255,255,255,.045) 49%,transparent 66%)}
+.catering-showcase-head{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem 2rem;align-items:end;margin-bottom:1.35rem}
+.catering-showcase-copy{max-width:720px}
+.catering-showcase-copy .eyebrow{color:var(--ember)}
+.catering-showcase-copy h2{margin:.45rem 0 .5rem;color:var(--bone);font-size:clamp(2rem,4.5vw,3rem)}
+.catering-showcase-copy p{max-width:680px;margin:0;color:rgba(255,246,230,.78)}
+.catering-showcase-kicker{display:inline-flex;align-items:center;gap:.45rem;margin-top:.8rem;padding:.42rem .68rem;border:1px solid rgba(233,162,59,.34);border-radius:999px;color:#f7d697;background:rgba(20,5,8,.24);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.catering-showcase-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px rgba(233,162,59,.14)}
+.catering-showcase-controls{display:flex;gap:.55rem;align-items:center;justify-content:flex-end}
+.catering-showcase-control{display:inline-flex;min-width:44px;height:44px;align-items:center;justify-content:center;padding:0 .78rem;border:1px solid rgba(255,246,230,.32);border-radius:999px;color:var(--bone);background:rgba(20,5,8,.38);font:800 .72rem/1 var(--font-body);letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.catering-showcase-control.icon{width:44px;padding:0;font-size:1.35rem;letter-spacing:0}
+.catering-showcase-control:hover{border-color:var(--ember);background:rgba(233,162,59,.18);transform:translateY(-2px)}
+.catering-showcase-control:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.catering-showcase-control:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.catering-showcase-track{position:relative;z-index:1;display:flex;gap:1rem;width:100%;padding:.2rem .08rem .8rem;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.catering-showcase-track::-webkit-scrollbar{display:none}
+.catering-card{flex:0 0 calc((100% - 2rem)/3);min-width:0;overflow:hidden;border:1px solid rgba(119,35,42,.16);border-radius:18px;background:var(--bone);box-shadow:0 16px 34px rgba(18,3,6,.25);scroll-snap-align:start;scroll-snap-stop:always}
+.catering-card-media{position:relative;overflow:hidden;aspect-ratio:4/3;background:#2d0c11}
+.catering-card-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.3,1)}
+.catering-card:hover .catering-card-media img{transform:scale(1.025)}
+.catering-card-body{padding:1rem 1rem 1.1rem}
+.catering-card-meta{display:flex;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:.55rem;color:var(--ink-soft);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.catering-card-meta time{color:var(--ember-deep)}
+.catering-card h3{margin:0;color:var(--oxblood);font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.08}
+.catering-card-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.8rem}
+.catering-card-tag{display:inline-flex;min-height:28px;align-items:center;padding:.3rem .55rem;border:1px solid rgba(119,35,42,.16);border-radius:999px;color:var(--ink-soft);background:#fff9ef;font-size:.7rem;font-weight:800;line-height:1.2}
+.catering-card-caption{margin:.8rem 0 0;color:var(--ink-soft);font-size:.9rem;line-height:1.5}
+.catering-showcase-state{position:relative;z-index:1;display:grid;min-height:270px;flex:0 0 100%;place-items:center;padding:2rem;border:1px dashed rgba(255,246,230,.24);border-radius:18px;color:rgba(255,246,230,.72);text-align:center;scroll-snap-align:start}
+.catering-showcase-state strong{display:block;margin-bottom:.35rem;color:var(--bone);font-family:var(--font-display);font-size:1.25rem}
+.catering-showcase-status{position:relative;z-index:1;min-height:1.2rem;margin:.2rem 0 0;color:rgba(255,246,230,.64);font-size:.78rem}
+@media(max-width:900px){.catering-card{flex-basis:calc((100% - 1rem)/2)}}
+@media(max-width:620px){.catering-showcase{margin-inline:-.3rem;padding:1.2rem;border-radius:22px}.catering-showcase-head{grid-template-columns:1fr}.catering-showcase-controls{justify-content:flex-start}.catering-card{flex-basis:86%}.catering-showcase-state{min-height:230px}.catering-showcase-copy p{font-size:.94rem}}
+@media(prefers-reduced-motion:reduce){.catering-showcase-track{scroll-behavior:auto}.catering-card-media img,.catering-showcase-control{transition:none}.catering-card:hover .catering-card-media img{transform:none}}
 
 /* ============== COMMUNITY page ============== */
 #page-community .cf-art{transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s}
@@ -1981,6 +2016,29 @@ p{margin:0 0 1rem}
       </div>
     </div>
   </div>
+  <div class="light section catering-showcase-section">
+    <div class="wrap">
+      <section class="catering-showcase reveal" id="recent-caterings" aria-labelledby="recent-caterings-title" data-catering-showcase data-feed-url="https://app.cenaskitchen.com/public/catering-showcase">
+        <div class="catering-showcase-head">
+          <div class="catering-showcase-copy">
+            <span class="eyebrow">Recently catered</span>
+            <h2 id="recent-caterings-title">Houston keeps us catering</h2>
+            <p>From boardroom lunches to family celebrations, we serve fresh Tex-Mex across Houston every week. Start with our latest setup, then keep moving through the tables we served before it.</p>
+            <span class="catering-showcase-kicker">Newest first · refreshed automatically</span>
+          </div>
+          <div class="catering-showcase-controls" aria-label="Recent catering controls">
+            <button class="catering-showcase-control icon" type="button" data-showcase-prev aria-label="Show previous catering" disabled>&lsaquo;</button>
+            <button class="catering-showcase-control" type="button" data-showcase-pause disabled>Pause</button>
+            <button class="catering-showcase-control icon" type="button" data-showcase-next aria-label="Show next catering" disabled>&rsaquo;</button>
+          </div>
+        </div>
+        <div class="catering-showcase-track" data-showcase-track role="region" aria-label="Recent catering gallery" tabindex="0">
+          <div class="catering-showcase-state" data-showcase-placeholder><div><strong>Preparing the latest spreads</strong><span>The gallery will load when it comes into view.</span></div></div>
+        </div>
+        <p class="catering-showcase-status" data-showcase-status role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </div>
   <div class="light section" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head center reveal"><span class="eyebrow">Packages</span><h2>Pick your fiesta</h2></div>
@@ -3199,6 +3257,7 @@ p{margin:0 0 1rem}
   });
 })();
 </script>
+<script src="/static/js/catering_showcase.js" defer></script>
 <script src="/static/js/bottle_modal.js" defer></script>
 </body>
 </html>
