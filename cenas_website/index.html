@@ -570,38 +570,43 @@ p{margin:0 0 1rem}
 #page-catering .pack:hover{transform:translateY(-6px);box-shadow:0 26px 52px rgba(60,16,20,.22);border-color:var(--ember)}
 #page-catering .pack.feat:hover{box-shadow:0 30px 60px rgba(60,16,20,.3)}
 .catering-showcase-section{padding-top:0;overflow:hidden}
-.catering-showcase{position:relative;padding:clamp(1.4rem,4vw,2.6rem);overflow:hidden;border:1px solid rgba(233,162,59,.36);border-radius:26px;background:radial-gradient(circle at 88% 8%,rgba(233,162,59,.16),transparent 30%),linear-gradient(145deg,#3f1117 0%,#66191f 58%,#351015 100%);box-shadow:0 26px 60px rgba(60,16,20,.2)}
-.catering-showcase::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 32%,rgba(255,255,255,.045) 49%,transparent 66%)}
-.catering-showcase-head{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem 2rem;align-items:end;margin-bottom:1.35rem}
+.catering-showcase{position:relative;padding:clamp(1.6rem,4.5vw,3.2rem);overflow:hidden;border:1px solid rgba(233,162,59,.22);border-radius:28px;background:radial-gradient(circle at 86% 0%,rgba(233,162,59,.1),transparent 42%),linear-gradient(165deg,#4a131b 0%,#5c1a21 52%,#380f14 100%);box-shadow:0 30px 70px rgba(60,16,20,.26),inset 0 1px 0 rgba(255,246,230,.05)}
+.catering-showcase-head{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem 2rem;align-items:end;margin-bottom:1.6rem}
 .catering-showcase-copy{max-width:720px}
 .catering-showcase-copy .eyebrow{color:var(--ember)}
-.catering-showcase-copy h2{margin:.45rem 0 .5rem;color:var(--bone);font-size:clamp(2rem,4.5vw,3rem)}
-.catering-showcase-copy p{max-width:680px;margin:0;color:rgba(255,246,230,.78)}
-.catering-showcase-controls{display:flex;gap:.55rem;align-items:center;justify-content:flex-end}
-.catering-showcase-control{display:inline-flex;min-width:44px;height:44px;align-items:center;justify-content:center;padding:0 .78rem;border:1px solid rgba(255,246,230,.32);border-radius:999px;color:var(--bone);background:rgba(20,5,8,.38);font:800 .72rem/1 var(--font-body);letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
-.catering-showcase-control.icon{width:44px;padding:0;font-size:1.35rem;letter-spacing:0}
-.catering-showcase-control:hover{border-color:var(--ember);background:rgba(233,162,59,.18);transform:translateY(-2px)}
+.catering-showcase-copy h2{margin:.45rem 0 .55rem;color:var(--bone);font-size:clamp(1.95rem,4.2vw,2.9rem)}
+.catering-showcase-copy p{max-width:60ch;margin:0;color:rgba(255,246,230,.72);font-size:.98rem}
+.catering-showcase-controls{display:flex;gap:.6rem;align-items:center;justify-content:flex-end}
+.catering-showcase-control{display:inline-flex;width:46px;height:46px;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,246,230,.24);border-radius:999px;color:var(--bone);background:rgba(20,5,8,.3);cursor:pointer;transition:border-color .25s,color .25s,background .25s}
+.catering-showcase-control svg{display:block}
+.catering-showcase-control:hover{border-color:var(--ember);color:var(--ember);background:rgba(233,162,59,.1)}
 .catering-showcase-control:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
-.catering-showcase-control:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.catering-showcase-track{position:relative;z-index:1;display:flex;gap:1rem;width:100%;padding:.2rem .08rem .8rem;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.catering-showcase-control:disabled{opacity:.35;cursor:not-allowed}
+.catering-showcase-track{position:relative;z-index:1;display:flex;gap:1.1rem;width:100%;padding:.2rem .08rem .4rem;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .catering-showcase-track::-webkit-scrollbar{display:none}
-.catering-card{flex:0 0 calc((100% - 2rem)/3);min-width:0;overflow:hidden;border:1px solid rgba(119,35,42,.16);border-radius:18px;background:var(--bone);box-shadow:0 16px 34px rgba(18,3,6,.25);scroll-snap-align:start;scroll-snap-stop:always}
-.catering-card-media{position:relative;overflow:hidden;aspect-ratio:4/3;background:#2d0c11}
-.catering-card-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.3,1)}
-.catering-card:hover .catering-card-media img{transform:scale(1.025)}
-.catering-card-body{padding:1rem 1rem 1.1rem}
-.catering-card-meta{display:flex;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:.55rem;color:var(--ink-soft);font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
-.catering-card-meta time{color:var(--ember-deep)}
-.catering-card h3{margin:0;color:var(--oxblood);font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.08}
-.catering-card-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.8rem}
-.catering-card-tag{display:inline-flex;min-height:28px;align-items:center;padding:.3rem .55rem;border:1px solid rgba(119,35,42,.16);border-radius:999px;color:var(--ink-soft);background:#fff9ef;font-size:.7rem;font-weight:800;line-height:1.2}
-.catering-card-caption{margin:.8rem 0 0;color:var(--ink-soft);font-size:.9rem;line-height:1.5}
-.catering-showcase-state{position:relative;z-index:1;display:grid;min-height:270px;flex:0 0 100%;place-items:center;padding:2rem;border:1px dashed rgba(255,246,230,.24);border-radius:18px;color:rgba(255,246,230,.72);text-align:center;scroll-snap-align:start}
-.catering-showcase-state strong{display:block;margin-bottom:.35rem;color:var(--bone);font-family:var(--font-display);font-size:1.25rem}
-.catering-showcase-status{position:relative;z-index:1;min-height:1.2rem;margin:.2rem 0 0;color:rgba(255,246,230,.64);font-size:.78rem}
-@media(max-width:900px){.catering-card{flex-basis:calc((100% - 1rem)/2)}}
-@media(max-width:620px){.catering-showcase{margin-inline:-.3rem;padding:1.2rem;border-radius:22px}.catering-showcase-head{grid-template-columns:1fr}.catering-showcase-controls{justify-content:flex-start}.catering-card{flex-basis:86%}.catering-showcase-state{min-height:230px}.catering-showcase-copy p{font-size:.94rem}}
-@media(prefers-reduced-motion:reduce){.catering-showcase-track{scroll-behavior:auto}.catering-card-media img,.catering-showcase-control{transition:none}.catering-card:hover .catering-card-media img{transform:none}}
+.catering-card{position:relative;flex:0 0 calc((100% - 2.2rem)/3);min-width:0;overflow:hidden;aspect-ratio:5/4;border-radius:20px;background:#2d0c11;box-shadow:0 18px 40px rgba(18,3,6,.32);scroll-snap-align:start;scroll-snap-stop:always}
+.catering-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.catering-card:hover img{transform:scale(1.045)}
+.catering-card-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,4,8,0) 40%,rgba(24,4,8,.34) 62%,rgba(24,4,8,.85) 100%)}
+.catering-card-overlay{position:absolute;right:0;bottom:0;left:0;padding:1.6rem 1.15rem 1.05rem;color:var(--bone)}
+.catering-card-meta{display:flex;flex-wrap:wrap;gap:.25rem .7rem;align-items:baseline;margin-bottom:.35rem;color:var(--ember);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.catering-card-meta span{color:rgba(255,246,230,.62)}
+.catering-card-overlay h3{margin:0;color:var(--bone);font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.08}
+.catering-card-detail{margin:.4rem 0 0;color:rgba(255,246,230,.76);font-size:.8rem;font-weight:600;line-height:1.45}
+.catering-showcase-state{position:relative;z-index:1;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1.1rem;min-height:280px;flex:0 0 100%;border-radius:20px;color:rgba(255,246,230,.72);scroll-snap-align:start}
+.catering-showcase-state>div{max-width:46ch;padding:2rem;place-self:center;text-align:center}
+.catering-showcase-state strong{display:block;margin-bottom:.35rem;color:var(--bone);font-family:var(--font-display);font-size:1.3rem}
+.catering-skel{max-width:none;padding:0;place-self:stretch;border-radius:20px;background:linear-gradient(100deg,rgba(255,246,230,.05) 38%,rgba(255,246,230,.11) 50%,rgba(255,246,230,.05) 62%) 0 0/200% 100%;animation:showcase-shimmer 1.6s linear infinite}
+@keyframes showcase-shimmer{to{background-position:-200% 0}}
+.catering-showcase-foot{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:.9rem 1.5rem;align-items:center;margin-top:1.4rem}
+.catering-showcase-progress{flex:1 1 200px;height:2px;overflow:hidden;border-radius:999px;background:rgba(255,246,230,.14)}
+.catering-showcase-progress span{display:block;width:0;height:100%;border-radius:999px;background:var(--ember);transition:width .35s ease}
+.catering-showcase-cta{color:var(--bone);font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:color .25s}
+.catering-showcase-cta:hover{color:var(--ember)}
+.catering-showcase-status{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;border:0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+@media(max-width:900px){.catering-card{flex-basis:calc((100% - 1.1rem)/2)}.catering-skel:nth-child(3){display:none}}
+@media(max-width:620px){.catering-showcase{margin-inline:-.3rem;padding:1.25rem 1.15rem 1.35rem;border-radius:22px}.catering-showcase-head{grid-template-columns:1fr;gap:.9rem;margin-bottom:1.15rem}.catering-showcase-controls{justify-content:flex-start}.catering-showcase-control{width:42px;height:42px}.catering-card{flex-basis:84%}.catering-showcase-state{min-height:240px}.catering-skel:nth-child(2){display:none}.catering-showcase-copy p{font-size:.93rem}.catering-showcase-foot{margin-top:1.05rem}}
+@media(prefers-reduced-motion:reduce){.catering-showcase-track{scroll-behavior:auto}.catering-card img,.catering-showcase-control,.catering-showcase-progress span,.catering-showcase-cta{transition:none}.catering-card:hover img{transform:none}.catering-skel{animation:none;background:rgba(255,246,230,.07)}}
 
 /* ============== COMMUNITY page ============== */
 #page-community .cf-art{transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s}
@@ -2021,16 +2026,20 @@ p{margin:0 0 1rem}
           <div class="catering-showcase-copy">
             <span class="eyebrow">Recently catered</span>
             <h2 id="recent-caterings-title">Houston keeps us catering</h2>
-            <p>From boardroom lunches to family celebrations, we serve fresh Tex-Mex across Houston every week. Start with our latest setup, then keep moving through the tables we served before it.</p>
+            <p>From boardroom lunches to family celebrations &mdash; fresh Tex-Mex, set up and served across Houston every week.</p>
           </div>
           <div class="catering-showcase-controls" aria-label="Recent catering controls">
-            <button class="catering-showcase-control icon" type="button" data-showcase-prev aria-label="Show previous catering" disabled>&lsaquo;</button>
-            <button class="catering-showcase-control" type="button" data-showcase-pause disabled>Pause</button>
-            <button class="catering-showcase-control icon" type="button" data-showcase-next aria-label="Show next catering" disabled>&rsaquo;</button>
+            <button class="catering-showcase-control" type="button" data-showcase-prev aria-label="Show previous catering" disabled><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M14.5 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="catering-showcase-control" type="button" data-showcase-pause aria-label="Pause slideshow" disabled><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M8.4 5.5v13M15.6 5.5v13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+            <button class="catering-showcase-control" type="button" data-showcase-next aria-label="Show next catering" disabled><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M9.5 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
         </div>
         <div class="catering-showcase-track" data-showcase-track role="region" aria-label="Recent catering gallery" tabindex="0">
-          <div class="catering-showcase-state" data-showcase-placeholder><div><strong>Preparing the latest spreads</strong><span>The gallery will load when it comes into view.</span></div></div>
+          <div class="catering-showcase-state" data-showcase-placeholder><div class="catering-skel"></div><div class="catering-skel"></div><div class="catering-skel"></div></div>
+        </div>
+        <div class="catering-showcase-foot">
+          <div class="catering-showcase-progress" aria-hidden="true"><span data-showcase-progress></span></div>
+          <a class="catering-showcase-cta" href="#cater" data-link="cater">Plan your event <span aria-hidden="true">&rsaquo;</span></a>
         </div>
         <p class="catering-showcase-status" data-showcase-status role="status" aria-live="polite"></p>
       </section>

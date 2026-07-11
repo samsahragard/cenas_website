@@ -10,6 +10,7 @@
   var previousButton = showcase.querySelector('[data-showcase-prev]');
   var pauseButton = showcase.querySelector('[data-showcase-pause]');
   var nextButton = showcase.querySelector('[data-showcase-next]');
+  var progressBar = showcase.querySelector('[data-showcase-progress]');
   var feedUrl = showcase.getAttribute('data-feed-url');
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
   var cards = [];
@@ -26,10 +27,22 @@
   var timer = null;
   var scrollFrame = null;
   var scrollIdleTimer = null;
+  var retryTimer = null;
   var retryAfter = 0;
   var failureCount = 0;
   var PAGE_SIZE = 6;
   var AUTOPLAY_DELAY = 4000;
+
+  var ICON_PAUSE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M8.4 5.5v13M15.6 5.5v13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  var ICON_PLAY = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M8.8 5.6v12.8L18.4 12z" fill="currentColor"/></svg>';
+
+  if (!feedUrl) return;
+  var resolvedFeedUrl = '';
+  try {
+    resolvedFeedUrl = new URL(feedUrl, window.location.href).href;
+  } catch (_error) {
+    return;
+  }
 
   function setStatus(message) {
     status.textContent = message || '';
@@ -38,7 +51,7 @@
   function safeUrl(value) {
     if (!value) return '';
     try {
-      var url = new URL(value, feedUrl);
+      var url = new URL(value, resolvedFeedUrl);
       if (url.protocol !== 'https:' && url.protocol !== 'http:') return '';
       return url.href;
     } catch (_error) {
@@ -105,42 +118,42 @@
     article.className = 'catering-card';
     article.setAttribute('data-showcase-card', '');
 
-    var media = document.createElement('div');
-    media.className = 'catering-card-media';
     var image = document.createElement('img');
     image.src = source;
     var sourceSet = imageSourceSet(item);
     if (sourceSet) image.srcset = sourceSet;
-    image.sizes = '(min-width: 1181px) 370px, (max-width: 620px) 86vw, (max-width: 900px) 50vw, 33vw';
+    image.sizes = '(min-width: 1181px) 370px, (max-width: 620px) 84vw, (max-width: 900px) 50vw, 33vw';
     image.width = Number((item.image || {}).width) || 960;
     image.height = Number((item.image || {}).height) || 720;
     image.loading = 'lazy';
     image.decoding = 'async';
     image.alt = item.alt_text || (item.image || {}).alt || 'A recent Cenas Kitchen catering setup';
-    media.appendChild(image);
-    article.appendChild(media);
+    article.appendChild(image);
 
-    var body = document.createElement('div');
-    body.className = 'catering-card-body';
+    var scrim = document.createElement('div');
+    scrim.className = 'catering-card-scrim';
+    scrim.setAttribute('aria-hidden', 'true');
+    article.appendChild(scrim);
+
+    var overlay = document.createElement('div');
+    overlay.className = 'catering-card-overlay';
     var meta = document.createElement('div');
     meta.className = 'catering-card-meta';
     var time = appendText(meta, 'time', '', formatDate(item));
     if (item.event_date) time.dateTime = item.event_date;
     appendText(meta, 'span', '', item.event_category || 'Catering');
-    body.appendChild(meta);
+    overlay.appendChild(meta);
 
-    appendText(body, 'h3', '', item.service_style || item.event_category || 'Cenas catering');
-    var tags = document.createElement('div');
-    tags.className = 'catering-card-tags';
-    if (item.guest_count) {
-      appendText(tags, 'span', 'catering-card-tag', Number(item.guest_count).toLocaleString('en-US') + ' guests');
-    }
-    normalizeCategories(item).forEach(function (category) {
-      appendText(tags, 'span', 'catering-card-tag', category);
+    appendText(overlay, 'h3', '', item.service_style || item.event_category || 'Cenas catering');
+
+    var details = [];
+    if (item.guest_count) details.push(Number(item.guest_count).toLocaleString('en-US') + ' guests');
+    normalizeCategories(item).slice(0, 3).forEach(function (category) {
+      details.push(category);
     });
-    if (tags.childNodes.length) body.appendChild(tags);
-    if (item.caption) appendText(body, 'p', 'catering-card-caption', item.caption);
-    article.appendChild(body);
+    if (details.length) appendText(overlay, 'p', 'catering-card-detail', details.join(' · '));
+
+    article.appendChild(overlay);
     return article;
   }
 
@@ -163,15 +176,30 @@
     nextButton.disabled = !enabled;
     if (reducedMotion && reducedMotion.matches) {
       pauseButton.disabled = true;
-      pauseButton.textContent = 'Motion off';
+      pauseButton.innerHTML = ICON_PLAY;
+      pauseButton.setAttribute('aria-label', 'Slideshow motion is off');
+      pauseButton.title = 'Slideshow motion is off';
     } else {
       pauseButton.disabled = !enabled;
-      pauseButton.textContent = manuallyPaused ? 'Play' : 'Pause';
+      pauseButton.innerHTML = manuallyPaused ? ICON_PLAY : ICON_PAUSE;
+      pauseButton.setAttribute('aria-label', manuallyPaused ? 'Play slideshow' : 'Pause slideshow');
+      pauseButton.title = manuallyPaused ? 'Play slideshow' : 'Pause slideshow';
     }
   }
 
+  function updateProgress() {
+    if (!progressBar) return;
+    var total = track.scrollWidth;
+    if (!total || !cards.length) {
+      progressBar.style.width = '0';
+      return;
+    }
+    var ratio = Math.min(1, (track.scrollLeft + track.clientWidth) / total);
+    progressBar.style.width = (ratio * 100).toFixed(2) + '%';
+  }
+
   function feedRequestUrl() {
-    var url = new URL(feedUrl, window.location.href);
+    var url = new URL(resolvedFeedUrl);
     url.searchParams.set('limit', String(PAGE_SIZE));
     if (nextCursor) url.searchParams.set('cursor', nextCursor);
     return url.href;
@@ -184,8 +212,16 @@
     return [];
   }
 
+  function scheduleRetry() {
+    if (retryTimer) window.clearTimeout(retryTimer);
+    retryTimer = window.setTimeout(function () {
+      retryTimer = null;
+      if (!cards.length && isVisible && !document.hidden) loadMore();
+    }, Math.max(retryAfter - Date.now(), 0) + 400);
+  }
+
   async function loadMore(forceRetry) {
-    if (loading || !hasMore || !feedUrl) return false;
+    if (loading || !hasMore) return false;
     if (!forceRetry && Date.now() < retryAfter) return false;
     loading = true;
     setStatus(cards.length ? 'Loading earlier caterings…' : 'Loading the latest caterings…');
@@ -224,6 +260,7 @@
       }
       setStatus('');
       updateControls();
+      updateProgress();
       updateAutoplay();
       return added > 0;
     } catch (_error) {
@@ -231,6 +268,7 @@
       retryAfter = Date.now() + Math.min(300000, 30000 * Math.pow(2, failureCount - 1));
       if (!cards.length) {
         setEmptyState('The gallery is taking a quick break', 'Our catering menu and quote form are still ready below.');
+        scheduleRetry();
       }
       setStatus('Recent catering photos could not be loaded right now.');
       return false;
@@ -270,7 +308,10 @@
   }
 
   async function advance(direction, forceRetry) {
-    if (!cards.length) return;
+    if (!cards.length) {
+      if (forceRetry) loadMore(true);
+      return;
+    }
     var index = currentIndex();
     if (direction > 0 && atRightEdge()) {
       if (!hasMore) {
@@ -346,9 +387,14 @@
       scrollFrame = null;
       var remaining = track.scrollWidth - track.scrollLeft - track.clientWidth;
       if (remaining < track.clientWidth * 1.5) loadMore();
+      updateProgress();
       if (isInteracting) scheduleInteractionEnd();
     });
   }, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  window.addEventListener('online', function () {
+    if (!cards.length && initialized) loadMore(true);
+  });
   document.addEventListener('visibilitychange', updateAutoplay);
   if (reducedMotion && reducedMotion.addEventListener) reducedMotion.addEventListener('change', function () {
     updateControls();
@@ -366,6 +412,7 @@
 
     var visibilityObserver = new IntersectionObserver(function (entries) {
       isVisible = Boolean(entries[0] && entries[0].isIntersecting);
+      if (isVisible && initialized && !cards.length && !loading && hasMore) loadMore();
       updateAutoplay();
     }, { threshold: 0.2 });
     visibilityObserver.observe(showcase);
@@ -375,4 +422,5 @@
   }
 
   updateControls();
+  updateProgress();
 })();
