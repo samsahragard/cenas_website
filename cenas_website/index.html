@@ -2397,7 +2397,8 @@ p{margin:0 0 1rem}
   .ck-pos-card:hover::after{left:175%}
   .ck-pos-art{position:relative;z-index:0;display:block;width:100%;height:clamp(190px,30vw,240px);overflow:hidden;border-radius:116px 116px 4px 4px;background:#f3e7d1}
   .ck-pos-art::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(to bottom,transparent,#f5ead4 88%);pointer-events:none}
-  .ck-pos-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;transform-origin:50% 88%;filter:saturate(.96) contrast(1.015);will-change:transform}
+  .ck-pos-art img,.ck-pos-art video{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;transform-origin:50% 88%;filter:saturate(.96) contrast(1.015);will-change:transform}
+  .ck-pos-art video{background:#f3e7d1}
   .ck-pos-copy{position:relative;z-index:3;display:flex;flex:1;min-width:0;min-height:58px;flex-direction:column;align-items:center;justify-content:flex-end;gap:.38rem;width:100%;padding-top:.42rem}
   .ck-pos-name{max-width:100%;font-family:var(--font-display);font-weight:800;font-size:1.12rem;line-height:1.12;letter-spacing:.01em;overflow-wrap:anywhere}
   .ck-pos-go{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--clay);opacity:.7;transition:opacity .25s,letter-spacing .25s}
@@ -2410,8 +2411,8 @@ p{margin:0 0 1rem}
   .ck-pos-card[data-role="dishwasher"]{--role-x1:-3px;--role-y1:-1px;--role-r1:-.5deg;--role-x2:6px;--role-y2:-2px;--role-r2:.5deg}
   .ck-pos-card[data-role="prep"]{--role-x1:-2px;--role-y1:-6px;--role-r1:-1.2deg;--role-x2:2px;--role-y2:-1px;--role-r2:1deg}
   .ck-pos-card[data-role="manager"]{--role-x1:-1px;--role-y1:-3px;--role-r1:-.4deg;--role-x2:3px;--role-y2:-5px;--role-r2:.7deg}
-  .ck-pos-card:hover .ck-pos-art img,.ck-pos-card:focus-visible .ck-pos-art img,.ck-pos-card.ck-pos-action .ck-pos-art img{animation:ckRoleGesture .72s cubic-bezier(.2,.72,.25,1) both}
-  .ck-pos-card.ck-pos-action .ck-pos-art img{animation-duration:.52s}
+  .ck-pos-card:hover .ck-pos-art img,.ck-pos-card:focus-visible .ck-pos-art img,.ck-pos-card.ck-pos-action .ck-pos-art img,.ck-pos-card:hover .ck-pos-art video,.ck-pos-card:focus-visible .ck-pos-art video,.ck-pos-card.ck-pos-action .ck-pos-art video{animation:ckRoleGesture .72s cubic-bezier(.2,.72,.25,1) both}
+  .ck-pos-card.ck-pos-action .ck-pos-art img,.ck-pos-card.ck-pos-action .ck-pos-art video{animation-duration:.52s}
   @keyframes ckPosIn{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:none}}
   @keyframes ckRoleGesture{0%,100%{transform:translate(0,0) rotate(0) scale(1)}28%{transform:translate(var(--role-x1),var(--role-y1)) rotate(var(--role-r1)) scale(1.018)}62%{transform:translate(var(--role-x2),var(--role-y2)) rotate(var(--role-r2)) scale(1.032)}}
   .ck-back-btn{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--ember);text-decoration:underline;padding:0;margin-left:auto}
@@ -3065,6 +3066,65 @@ p{margin:0 0 1rem}
       "Server":"server","Cook":"cook","Bartender":"bartender","Host":"host","To-Go Associate":"to-go",
       "Expo":"expo","Dishwasher":"dishwasher","Prep":"prep","Manager":"manager"
     };
+    var VIDEO_ROLES={"server":1,"cook":1,"bartender":1,"host":1,"to-go":1,"expo":1,"dishwasher":1,"prep":1,"manager":1};
+    var reduceMotionQuery=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
+    var useRoleVideo=!(reduceMotionQuery&&reduceMotionQuery.matches)&&!(navigator.connection&&navigator.connection.saveData)&&('IntersectionObserver' in window);
+    var roleVideoObserver=null;
+    if(reduceMotionQuery&&reduceMotionQuery.addEventListener) reduceMotionQuery.addEventListener('change',function(e){
+      if(!e.matches) return;
+      var vids=document.querySelectorAll('video.ck-pos-vid');
+      for(var pi=0;pi<vids.length;pi++){ vids[pi].pause(); }
+    });
+    function roleArtMarkup(p){
+      var slug=ROLE_SLUG[p]||'role';
+      var poster='/static/images/careers/'+ROLE_ART[p];
+      if(useRoleVideo&&VIDEO_ROLES[slug]){
+        return '<video class="ck-pos-vid" muted loop playsinline preload="metadata" poster="'+poster+'" width="360" height="640"><source src="/static/videos/careers/role-'+slug+'.mp4" type="video/mp4"></video>';
+      }
+      return '<img src="'+poster+'" alt="" width="768" height="1536" loading="lazy" decoding="async">';
+    }
+    function roleVideoFallback(v){
+      var img=document.createElement('img');
+      img.src=v.getAttribute('poster')||'';
+      img.alt='';
+      img.width=768;img.height=1536;
+      img.loading='lazy';img.decoding='async';
+      if(v._ckPlayTimer){ window.clearTimeout(v._ckPlayTimer); v._ckPlayTimer=0; }
+      if(roleVideoObserver) roleVideoObserver.unobserve(v);
+      if(v.parentNode) v.parentNode.replaceChild(img,v);
+    }
+    function initRoleVideos(scope){
+      if(!useRoleVideo) return;
+      if(roleVideoObserver) roleVideoObserver.disconnect();
+      roleVideoObserver=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          var v=en.target;
+          if(v._ckPlayTimer){ window.clearTimeout(v._ckPlayTimer); v._ckPlayTimer=0; }
+          if(en.isIntersecting){
+            var card=v.closest?v.closest('.ck-pos-card'):null;
+            var delay=card?(parseFloat(card.style.animationDelay)||0):0;
+            v._ckPlayTimer=window.setTimeout(function(){
+              v._ckPlayTimer=0;
+              if(!v.isConnected) return;
+              v.muted=true;
+              var pr=v.play();
+              if(pr&&pr.catch) pr.catch(function(){});
+            },delay+320);
+          } else {
+            v.pause();
+          }
+        });
+      },{threshold:.25});
+      var vids=scope.querySelectorAll('video.ck-pos-vid');
+      for(var vi=0;vi<vids.length;vi++){
+        (function(v){
+          v.addEventListener('error',function(){ roleVideoFallback(v); },true);
+          var srcEl=v.querySelector('source');
+          if(srcEl) srcEl.addEventListener('error',function(){ roleVideoFallback(v); });
+          roleVideoObserver.observe(v);
+        })(vids[vi]);
+      }
+    }
     var locStep=document.getElementById('ck-loc-step');
     var posStep=document.getElementById('ck-pos-step');
     var grid=document.getElementById('ck-pos-grid');
@@ -3111,7 +3171,7 @@ p{margin:0 0 1rem}
         b.setAttribute('data-role',ROLE_SLUG[p]||'role');
         b.setAttribute('aria-label','Apply for '+p+' at '+name);
         b.style.animationDelay=(idx*60)+'ms';
-        b.innerHTML='<span class="ck-pos-art" aria-hidden="true"><img src="/static/images/careers/'+ROLE_ART[p]+'" alt="" width="768" height="1536" loading="lazy" decoding="async"></span><span class="ck-pos-copy"><span class="ck-pos-name">'+p+'</span><span class="ck-pos-go">Apply &rarr;</span></span>';
+        b.innerHTML='<span class="ck-pos-art" aria-hidden="true">'+roleArtMarkup(p)+'</span><span class="ck-pos-copy"><span class="ck-pos-name">'+p+'</span><span class="ck-pos-go">Apply &rarr;</span></span>';
         b.addEventListener('click',function(){
           var card=this;
           var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3130,6 +3190,7 @@ p{margin:0 0 1rem}
         });
         grid.appendChild(b);
       });
+      initRoleVideos(grid);
       locName.textContent=name;
       locStep.classList.add('ck-hidden');
       posStep.classList.remove('ck-hidden');
