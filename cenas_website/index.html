@@ -388,7 +388,7 @@ p{margin:0 0 1rem}
   .head-cta .btn{padding:.58rem .82rem;font-size:.78rem;white-space:nowrap}
   .burger{display:flex;margin-left:0;padding:.55rem}
   .hero-grid{grid-template-columns:1fr;gap:1.8rem}
-  #page-home .hero-cta a[data-link="order"]{display:none}
+  #page-home .hero-cta a[data-link="menu"]{display:none}
   #page-home .hero-copy>.eyebrow,
   #page-home .hero-loc{display:none}
   .hero-art{width:min(440px,calc(100vw - 2rem));max-width:none;margin:.35rem auto 0}
@@ -673,6 +673,24 @@ p{margin:0 0 1rem}
 .page.is-active{animation:pageIn .55s cubic-bezier(.2,.7,.3,1)}
 @keyframes pageIn{0%{opacity:0;transform:translateY(12px) scale(.995)}100%{opacity:1;transform:none}}
 .arch .af{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+video.af{background:#491a16}
+.dish-link{display:block;color:inherit;text-decoration:none}
+.dish-go{display:inline-flex;gap:.4rem;align-items:center;margin-top:.55rem;color:var(--ember);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:gap .25s}
+.light .dish-go{color:var(--ember-deep)}
+.dish-link:hover .dish-go{gap:.65rem}
+.dish-link:focus-visible{outline:3px solid var(--ember);outline-offset:4px;border-radius:14px}
+.order-hero{position:relative;max-width:980px;margin:1.8rem auto 0;aspect-ratio:21/9;overflow:hidden;border:1px solid rgba(233,162,59,.3);border-radius:22px;box-shadow:0 24px 55px rgba(18,3,6,.35)}
+.order-hero .af{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:620px){.order-hero{aspect-ratio:16/10;border-radius:16px}}
+.ck-orderbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:.75rem;align-items:center;justify-content:space-between;padding:.6rem .95rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(40,12,15,.94);border-top:1px solid rgba(233,162,59,.4);backdrop-filter:blur(10px)}
+.ck-orderbar.on{display:flex}
+.ck-orderbar .ob-txt{min-width:0;color:rgba(243,231,209,.8);font-size:.76rem;line-height:1.25}
+.ck-orderbar .ob-txt b{display:block;overflow:hidden;color:var(--bone);font-family:var(--font-display);font-size:1.02rem;white-space:nowrap;text-overflow:ellipsis}
+.ck-orderbar .btn{flex:0 0 auto;white-space:nowrap}
+body.ck-orderbar-on{padding-bottom:82px}
+body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
+@media(min-width:760px){.ck-orderbar{display:none!important}body.ck-orderbar-on{padding-bottom:0}}
+@media(prefers-reduced-motion:reduce){.ck-orderbar{backdrop-filter:none}.dish-link:hover .dish-go{gap:.4rem}}
 .arch .caption{z-index:2}
 .loc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* ============== LUXE PASS (site-wide refinement) ============== */
@@ -1026,8 +1044,8 @@ p{margin:0 0 1rem}
         <h1>Pull up a <em>chair.</em></h1>
         <p class="lead">Two Houston kitchens, one family recipe.</p>
         <div class="hero-cta">
-          <a href="#menu" data-link="menu" class="btn btn-ember">View the menu <svg class="ar" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="#order" data-link="order" class="btn btn-ghost">Order now</a>
+          <a href="#order" data-link="order" class="btn btn-ember">Order Now <svg class="ar" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#menu" data-link="menu" class="btn btn-ghost">View the menu</a>
         </div>
         <div class="hero-loc">
           <span class="l"><svg class="pin" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg><b>Copperfield</b></span>
@@ -1040,7 +1058,7 @@ p{margin:0 0 1rem}
         
         <div class="arch-frame">
           <div class="arch">
-            <img class="af" src="/static/images/hero_fajitas.jpg" alt="Cenas Kitchen sizzling fajita platter">
+            <video class="af ck-ambient" muted loop playsinline preload="metadata" poster="/static/images/hero_fajitas.jpg" role="img" aria-label="Cenas Kitchen sizzling fajita platter, steam rising" data-alt="Cenas Kitchen sizzling fajita platter"><source src="/static/videos/home/hero-fajitas.mp4" type="video/mp4"></video>
             <div class="caption"><div class="nm">Sizzling Fajitas</div><div class="sub">House Specialty</div></div>
           </div>
           <span class="corner c-l"></span><span class="corner c-r"></span>
@@ -1106,16 +1124,25 @@ p{margin:0 0 1rem}
       <div class="sec-head center reveal"><span class="eyebrow" style="color:var(--ember)">Order favorites</span><h2 style="color:var(--bone)">What everyone gets</h2></div>
       <div class="dishes">
         <div class="dish reveal">
-          <div class="arch-frame"><div class="arch"><img class="af" src="/static/images/sampler.webp" alt="Cenas sampler platter"><div class="caption"><div class="nm">Sampler</div></div></div><span class="corner c-l"></span><span class="corner c-r"></span></div>
+          <a class="dish-link" href="#order" data-link="order" aria-label="Order the Sampler">
+          <div class="arch-frame"><div class="arch"><video class="af ck-ambient" muted loop playsinline preload="none" poster="/static/images/sampler.webp" role="img" aria-label="Cenas sampler platter, steaming hot" data-alt="Cenas sampler platter"><source src="/static/videos/home/sampler.mp4" type="video/mp4"></video><div class="caption"><div class="nm">Sampler</div></div></div><span class="corner c-l"></span><span class="corner c-r"></span></div>
           <h3>Sampler</h3><p>Sample a bit of everything.</p>
+          <span class="dish-go">Order this <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
         <div class="dish reveal d1">
-          <div class="arch-frame"><div class="arch"><img class="af" src="/static/images/cenalada.webp" alt="Cenaladas enchiladas"><div class="caption"><div class="nm">Cenaladas</div></div></div><span class="corner c-l"></span><span class="corner c-r"></span></div>
+          <a class="dish-link" href="#order" data-link="order" aria-label="Order the Cenaladas">
+          <div class="arch-frame"><div class="arch"><video class="af ck-ambient" muted loop playsinline preload="none" poster="/static/images/cenalada.webp" role="img" aria-label="Cenaladas enchiladas, steaming hot" data-alt="Cenaladas enchiladas"><source src="/static/videos/home/cenalada.mp4" type="video/mp4"></video><div class="caption"><div class="nm">Cenaladas</div></div></div><span class="corner c-l"></span><span class="corner c-r"></span></div>
           <h3>Cenaladas</h3><p>An enchilada of every kind.</p>
+          <span class="dish-go">Order this <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
         <div class="dish reveal d2">
-          <div class="arch-frame"><div class="arch"><img class="af" src="/static/images/house_marg.webp" alt="Cenas house margarita"><div class="caption"><div class="nm">Margaritas</div></div></div><span class="corner c-l"></span><span class="corner c-r"></span></div>
+          <a class="dish-link" href="#order" data-link="order" aria-label="Order a Margarita">
+          <div class="arch-frame"><div class="arch"><video class="af ck-ambient" muted loop playsinline preload="none" poster="/static/images/house_marg.webp" role="img" aria-label="Cenas house margarita, ice cold" data-alt="Cenas house margarita"><source src="/static/videos/home/house-marg.mp4" type="video/mp4"></video><div class="caption"><div class="nm">Margaritas</div></div></div><span class="corner c-l"></span><span class="corner c-r"></span></div>
           <h3>Margaritas</h3><p>Fresh lime, real tequila, a salted rim. No mix.</p>
+          <span class="dish-go">Order this <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
       </div>
     </div>
@@ -1637,18 +1664,21 @@ p{margin:0 0 1rem}
         <div class="order-card reveal">
           <h3>Cenas Kitchen — Copperfield</h3><div class="area">Northwest Houston · FM 529</div>
           <p>Online ordering for pickup, curbside and delivery.</p>
+          <p style="margin-top:.2rem;color:rgba(243,231,209,.65);font-size:.86rem">15650 Farm To Market Rd 529, Houston, TX 77095</p>
           <div class="chans">
-            <a class="chan" href="https://order.toasttab.com/online/aguirres-tex-mex-1-copperfield-6166-hwy-6-north-unit-22" target="_blank" rel="noopener">Order Here <svg class="ar" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ember" style="justify-content:center" href="https://order.toasttab.com/online/aguirres-tex-mex-1-copperfield-6166-hwy-6-north-unit-22" target="_blank" rel="noopener">Order Copperfield <svg class="ar" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
         <div class="order-card reveal d1">
           <h3>Cenas Kitchen — Tomball</h3><div class="area">Tomball · Hwy 249</div>
           <p>Online ordering for pickup, curbside and delivery.</p>
+          <p style="margin-top:.2rem;color:rgba(243,231,209,.65);font-size:.86rem">27727 Tomball Parkway, Tomball, TX 77375</p>
           <div class="chans">
-            <a class="chan" href="https://order.toasttab.com/online/aguirres-tex-mex-2-tomball-27727-tomball-parkway" target="_blank" rel="noopener">Order Here <svg class="ar" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ember" style="justify-content:center" href="https://order.toasttab.com/online/aguirres-tex-mex-2-tomball-27727-tomball-parkway" target="_blank" rel="noopener">Order Tomball <svg class="ar" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>
+      <div class="order-hero reveal"><video class="af ck-ambient" muted loop playsinline preload="none" poster="/static/images/cenas_table_spread_poster.jpg" role="img" aria-label="A full Cenas Kitchen table spread, hot plates and cold drinks" data-alt="Cenas Kitchen table spread"><source src="/static/videos/home/table-spread.mp4" type="video/mp4"></video></div>
     </div>
   </div>
   <div class="light section">
@@ -3044,6 +3074,82 @@ p{margin:0 0 1rem}
       });
     })(cards[c]);
   }
+})();
+</script>
+<div id="ck-orderbar" class="ck-orderbar" role="complementary" aria-label="Quick order">
+  <div class="ob-txt"><b>Hungry now?</b>Pickup &amp; delivery from both kitchens</div>
+  <a class="btn btn-ember" href="#order" data-link="order">Order Now</a>
+</div>
+<script>
+/* Ambient food videos: viewport-gated playback with still-image fallbacks */
+(function(){
+  var vids=document.querySelectorAll('video.ck-ambient');
+  if(!vids.length) return;
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  function toImg(v){
+    var img=document.createElement('img');
+    img.className='af';
+    img.src=v.getAttribute('poster')||'';
+    img.alt=v.getAttribute('data-alt')||'';
+    img.loading='lazy';img.decoding='async';
+    if(io) io.unobserve(v);
+    if(v.parentNode) v.parentNode.replaceChild(img,v);
+  }
+  var io=null;
+  if(!('IntersectionObserver' in window)||saveData||(reduced&&reduced.matches)) return;
+  io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var v=en.target;
+      if(en.isIntersecting){
+        v.muted=true;
+        var pr=v.play();
+        if(pr&&pr.catch) pr.catch(function(){});
+      } else {
+        v.pause();
+      }
+    });
+  },{threshold:.2});
+  for(var i=0;i<vids.length;i++){
+    (function(v){
+      v.addEventListener('error',function(){ toImg(v); },true);
+      var s=v.querySelector('source');
+      if(s) s.addEventListener('error',function(){ toImg(v); });
+      io.observe(v);
+    })(vids[i]);
+  }
+  if(reduced&&reduced.addEventListener) reduced.addEventListener('change',function(e){
+    if(!e.matches) return;
+    if(io){ io.disconnect(); io=null; }
+    var all=document.querySelectorAll('video.ck-ambient');
+    for(var j=0;j<all.length;j++){ all[j].pause(); }
+  });
+})();
+/* Sticky mobile order bar: home page only, after the hero */
+(function(){
+  var bar=document.getElementById('ck-orderbar');
+  if(!bar) return;
+  var home=document.getElementById('page-home');
+  var order=document.getElementById('page-order');
+  function scrollPos(){
+    return Math.max(window.scrollY||0,document.documentElement.scrollTop||0,document.body.scrollTop||0);
+  }
+  function threshold(){
+    var hero=home&&home.querySelector('.hero');
+    return hero&&hero.offsetHeight?Math.max(hero.offsetHeight-80,300):420;
+  }
+  function update(){
+    var on=home&&home.classList.contains('is-active')&&(!order||!order.classList.contains('is-active'))&&window.innerWidth<760&&scrollPos()>threshold();
+    bar.classList.toggle('on',on);
+    document.body.classList.toggle('ck-orderbar-on',on);
+  }
+  document.addEventListener('scroll',update,{passive:true,capture:true});
+  window.addEventListener('resize',update,{passive:true});
+  window.addEventListener('hashchange',update);
+  if(home&&'MutationObserver' in window){
+    new MutationObserver(update).observe(home,{attributes:true,attributeFilter:['class']});
+  }
+  update();
 })();
 </script>
 <script>
