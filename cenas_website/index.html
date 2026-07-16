@@ -571,42 +571,29 @@ p{margin:0 0 1rem}
 #page-catering .pack.feat:hover{box-shadow:0 30px 60px rgba(60,16,20,.3)}
 .catering-showcase-section{padding-top:0;overflow:hidden}
 .catering-showcase{position:relative;padding:clamp(1.6rem,4.5vw,3.2rem);overflow:hidden;border:1px solid rgba(233,162,59,.22);border-radius:28px;background:radial-gradient(circle at 86% 0%,rgba(233,162,59,.1),transparent 42%),linear-gradient(165deg,#4a131b 0%,#5c1a21 52%,#380f14 100%);box-shadow:0 30px 70px rgba(60,16,20,.26),inset 0 1px 0 rgba(255,246,230,.05)}
-.catering-showcase-head{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem 2rem;align-items:end;margin-bottom:1.6rem}
+.catering-showcase-head{position:relative;z-index:1;margin-bottom:1.6rem}
 .catering-showcase-copy{max-width:720px}
 .catering-showcase-copy .eyebrow{color:var(--ember)}
-.catering-showcase-copy h2{margin:.45rem 0 .55rem;color:var(--bone);font-size:clamp(1.95rem,4.2vw,2.9rem)}
-.catering-showcase-copy p{max-width:60ch;margin:0;color:rgba(255,246,230,.72);font-size:.98rem}
-.catering-showcase-controls{display:flex;gap:.6rem;align-items:center;justify-content:flex-end}
-.catering-showcase-control{display:inline-flex;width:46px;height:46px;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,246,230,.24);border-radius:999px;color:var(--bone);background:rgba(20,5,8,.3);cursor:pointer;transition:border-color .25s,color .25s,background .25s}
-.catering-showcase-control svg{display:block}
-.catering-showcase-control:hover{border-color:var(--ember);color:var(--ember);background:rgba(233,162,59,.1)}
-.catering-showcase-control:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
-.catering-showcase-control:disabled{opacity:.35;cursor:not-allowed}
-.catering-showcase-track{position:relative;z-index:1;display:flex;gap:1.1rem;width:100%;padding:.2rem .08rem .4rem;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.catering-showcase-track::-webkit-scrollbar{display:none}
-.catering-card{position:relative;flex:0 0 calc((100% - 2.2rem)/3);min-width:0;overflow:hidden;aspect-ratio:5/4;border-radius:20px;background:#2d0c11;box-shadow:0 18px 40px rgba(18,3,6,.32);scroll-snap-align:start;scroll-snap-stop:always}
+.catering-showcase-copy h2{margin:.45rem 0 0;color:var(--bone);font-size:clamp(1.95rem,4.2vw,2.9rem)}
+.catering-showcase-track{position:relative;z-index:1;width:100%;padding:.2rem 0 .4rem;overflow:hidden}
+.catering-showcase-strip{display:flex;width:max-content;will-change:transform;animation:showcase-marquee var(--marquee-duration,80s) linear infinite}
+@keyframes showcase-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.catering-card{position:relative;flex:0 0 auto;width:clamp(300px,34vw,462px);margin-right:1.1rem;overflow:hidden;aspect-ratio:5/4;border-radius:20px;background:#2d0c11;box-shadow:0 18px 40px rgba(18,3,6,.32)}
 .catering-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .catering-card:hover img{transform:scale(1.045)}
-.catering-card-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,4,8,0) 40%,rgba(24,4,8,.34) 62%,rgba(24,4,8,.85) 100%)}
-.catering-card-overlay{position:absolute;right:0;bottom:0;left:0;padding:1.6rem 1.15rem 1.05rem;color:var(--bone)}
-.catering-card-meta{display:flex;flex-wrap:wrap;gap:.25rem .7rem;align-items:baseline;margin-bottom:.35rem;color:var(--ember);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.catering-card-meta span{color:rgba(255,246,230,.62)}
-.catering-card-overlay h3{margin:0;color:var(--bone);font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.08}
-.catering-card-detail{margin:.4rem 0 0;color:rgba(255,246,230,.76);font-size:.8rem;font-weight:600;line-height:1.45}
+.catering-card-date{position:absolute;top:.8rem;right:.8rem;padding:.32rem .68rem;border-radius:999px;background:rgba(24,4,8,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:var(--bone);font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 .catering-showcase-state{position:relative;z-index:1;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:1.1rem;min-height:280px;flex:0 0 100%;border-radius:20px;color:rgba(255,246,230,.72);scroll-snap-align:start}
 .catering-showcase-state>div{max-width:46ch;padding:2rem;place-self:center;text-align:center}
 .catering-showcase-state strong{display:block;margin-bottom:.35rem;color:var(--bone);font-family:var(--font-display);font-size:1.3rem}
 .catering-skel{max-width:none;padding:0;place-self:stretch;border-radius:20px;background:linear-gradient(100deg,rgba(255,246,230,.05) 38%,rgba(255,246,230,.11) 50%,rgba(255,246,230,.05) 62%) 0 0/200% 100%;animation:showcase-shimmer 1.6s linear infinite}
 @keyframes showcase-shimmer{to{background-position:-200% 0}}
-.catering-showcase-foot{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:.9rem 1.5rem;align-items:center;margin-top:1.4rem}
-.catering-showcase-progress{flex:1 1 200px;height:2px;overflow:hidden;border-radius:999px;background:rgba(255,246,230,.14)}
-.catering-showcase-progress span{display:block;width:0;height:100%;border-radius:999px;background:var(--ember);transition:width .35s ease}
+.catering-showcase-foot{position:relative;z-index:1;display:flex;justify-content:flex-end;align-items:center;margin-top:1.4rem}
 .catering-showcase-cta{color:var(--bone);font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:color .25s}
 .catering-showcase-cta:hover{color:var(--ember)}
 .catering-showcase-status{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;border:0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
-@media(max-width:900px){.catering-card{flex-basis:calc((100% - 1.1rem)/2)}.catering-skel:nth-child(3){display:none}}
-@media(max-width:620px){.catering-showcase{margin-inline:-.3rem;padding:1.25rem 1.15rem 1.35rem;border-radius:22px}.catering-showcase-head{grid-template-columns:1fr;gap:.9rem;margin-bottom:1.15rem}.catering-showcase-controls{justify-content:flex-start}.catering-showcase-control{width:42px;height:42px}.catering-card{flex-basis:84%}.catering-showcase-state{min-height:240px}.catering-skel:nth-child(2){display:none}.catering-showcase-copy p{font-size:.93rem}.catering-showcase-foot{margin-top:1.05rem}}
-@media(prefers-reduced-motion:reduce){.catering-showcase-track{scroll-behavior:auto}.catering-card img,.catering-showcase-control,.catering-showcase-progress span,.catering-showcase-cta{transition:none}.catering-card:hover img{transform:none}.catering-skel{animation:none;background:rgba(255,246,230,.07)}}
+@media(max-width:900px){.catering-skel:nth-child(3){display:none}}
+@media(max-width:620px){.catering-showcase{margin-inline:-.3rem;padding:1.25rem 1.15rem 1.35rem;border-radius:22px}.catering-showcase-head{margin-bottom:1.15rem}.catering-card{width:min(300px,84vw)}.catering-showcase-state{min-height:240px}.catering-skel:nth-child(2){display:none}.catering-showcase-foot{margin-top:1.05rem}}
+@media(prefers-reduced-motion:reduce){.catering-showcase-strip{animation:none}.catering-showcase-track{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.catering-showcase-track::-webkit-scrollbar{display:none}.catering-card img,.catering-showcase-cta{transition:none}.catering-card:hover img{transform:none}.catering-skel{animation:none;background:rgba(255,246,230,.07)}}
 
 /* ============== COMMUNITY page ============== */
 #page-community .cf-art{transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s}
@@ -2055,20 +2042,13 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
         <div class="catering-showcase-head">
           <div class="catering-showcase-copy">
             <span class="eyebrow">Recently catered</span>
-            <h2 id="recent-caterings-title">Houston keeps us catering</h2>
-            <p>From boardroom lunches to family celebrations &mdash; fresh Tex-Mex, set up and served across Houston every week.</p>
-          </div>
-          <div class="catering-showcase-controls" aria-label="Recent catering controls">
-            <button class="catering-showcase-control" type="button" data-showcase-prev aria-label="Show previous catering" disabled><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M14.5 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="catering-showcase-control" type="button" data-showcase-pause aria-label="Pause slideshow" disabled><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M8.4 5.5v13M15.6 5.5v13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
-            <button class="catering-showcase-control" type="button" data-showcase-next aria-label="Show next catering" disabled><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M9.5 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <h2 id="recent-caterings-title">Cenas Kitchen Catering</h2>
           </div>
         </div>
-        <div class="catering-showcase-track" data-showcase-track role="region" aria-label="Recent catering gallery" tabindex="0">
+        <div class="catering-showcase-track" data-showcase-track role="region" aria-label="Recent catering gallery">
           <div class="catering-showcase-state" data-showcase-placeholder><div class="catering-skel"></div><div class="catering-skel"></div><div class="catering-skel"></div></div>
         </div>
         <div class="catering-showcase-foot">
-          <div class="catering-showcase-progress" aria-hidden="true"><span data-showcase-progress></span></div>
           <a class="catering-showcase-cta" href="#cater" data-link="cater">Plan your event <span aria-hidden="true">&rsaquo;</span></a>
         </div>
         <p class="catering-showcase-status" data-showcase-status role="status" aria-live="polite"></p>
