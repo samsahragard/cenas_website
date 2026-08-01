@@ -34,12 +34,77 @@
 - Use the browser's documented user-tab attachment method; do not infer a `tabs.claim()` helper.
 - Use the admin template's exact `.cs-photo` selector; do not infer private preview URL substrings.
 - Submit one approval per browser navigation and verify it in the public feed before starting the next approval.
-- Keep the public catering carousel free of redundant refresh-status copy and use the user-approved faster motion cadence.
+- Keep the public catering carousel free of redundant refresh-status copy. (SUPERSEDED 2026-07-15: Sam replaced step autoplay entirely with a slow continuous marquee — 28px/s linear infinite translateX loop, no prev/next/pause, date-only card badges, commit 61644c0. Do not restore interval-based autoplay or overlay text.)
 - Cast diagnostic file contents to a plain string before placing them in JSON objects.
 - Pass all four required Chrome scroll fields: `x`, `y`, `scrollX`, and `scrollY`.
 - Hard rule: After one Chrome synthesized-scroll timeout, stop gesture scrolling and use DOM or network evidence.
+- For this Quick Share archive, use controlled `bsdtar` staging; .NET `ZipArchive` misreads its ZIP64 sentinel metadata.
+- If workspace dependency discovery hangs, terminate it once and use already-installed, task-specific image tools.
+- Follow the app's production database URL precedence; do not assume Render's `DATABASE_URL` is the operational orders database.
+- Inspect a generated JSON manifest's top-level type before indexing expected object properties.
+- When inspecting a batch manifest, print only schema keys and a bounded sample; never serialize the full candidate array.
 
 ## Entries
+
+### 2026-07-10 — manifest inspection serialized all 35 candidates
+- What happened: The corrected manifest-shape command included the top-level object as `First`, producing a large truncated output containing every candidate.
+- Root cause: The bounded schema inspection still embedded the full object instead of selecting a small candidate sample.
+- Fix: Use `candidate_count`, top-level keys, candidate-field names, and one explicitly selected candidate only.
+- Rule: When inspecting a batch manifest, print only schema keys and a bounded sample; never serialize the full candidate array.
+
+### 2026-07-10 — assumed the crop manifest was an object
+- What happened: The first manifest-shape check indexed `$manifest.items[0]`, but the generated manifest is not shaped as an object with an `items` property.
+- Root cause: The top-level JSON type was assumed instead of inspected first.
+- Fix: Read only the parsed type and top-level count, then branch to the actual array/object schema.
+- Rule: Inspect a generated JSON manifest's top-level type before indexing expected object properties.
+
+### 2026-07-10 — database-config search repeated invalid optional paths
+- What happened: A `CORPORATE_DB_URL` search included nonexistent root `config.py` and an invalid Windows `*.py` path argument, so the command exited 1 despite useful matches.
+- Root cause: The existing confirmed-path and Windows-glob hard rules were violated during database diagnosis.
+- Fix: Stop optional root-path searches and inspect only the confirmed `app/services/corporate_shop.py` reference plus the service environment keys.
+- Rule: Never include optional or unverified paths in a required diagnostic command; verify each path first or handle no-match separately.
+
+### 2026-07-10 — queried the wrong configured database URL
+- What happened: The first read-only order-match query used Render's `DATABASE_URL` and connected to a SQLite database with no `orders` table.
+- Root cause: The operational app's database URL precedence was not checked before selecting the environment key.
+- Fix: Inspect `app/db.py` and use the same production URL selection as the running application, without printing any credential value.
+- Rule: Follow the app's production database URL precedence; do not assume Render's `DATABASE_URL` is the operational orders database.
+
+### 2026-07-10 — workspace dependency discovery hung during ZIP review
+- What happened: A delegated `load_workspace_dependencies` call hung for about 60 seconds while preparing image inspection.
+- Root cause: The broad dependency discovery path stalled even though installed Pillow and Windows OCR were sufficient.
+- Fix: The agent terminated the call and completed all 72-image validation with installed Python/Pillow and local OCR.
+- Rule: If workspace dependency discovery hangs, terminate it once and use already-installed, task-specific image tools.
+
+### 2026-07-10 — delegated audit ran git in the wrapper workspace
+- What happened: The import/crop audit first ran `git status` in the task wrapper, whose `.git` is not a usable project repository.
+- Root cause: It did not use the two confirmed Cenas repository paths supplied in the task.
+- Fix: It switched to the confirmed public-site and backend worktrees.
+- Rule: Use repository paths already discovered instead of assuming the current wrapper directory is a Git worktree.
+
+### 2026-07-10 — truncated tar listing closed the producer pipe
+- What happened: `tar -tvf | Select-Object -First` exited with code 1 after the consumer closed the pipe, even though the listing confirmed 72 entries.
+- Root cause: A short-circuiting pipeline was used for an archive command that reports the closed pipe as failure.
+- Fix: Use archive APIs or capture the complete bounded listing before selecting rows.
+- Rule: Do not truncate `tar` output through a consumer that closes the pipe early; capture it first, then slice it.
+
+### 2026-07-10 — delegated audit used a Windows wildcard path with rg
+- What happened: The audit passed `requirements*.txt` directly to `rg`, repeating the known Windows glob-path error.
+- Root cause: It skipped manifest discovery with `rg --files`.
+- Fix: It discovered actual requirement filenames first and searched only confirmed paths.
+- Rule: Use `rg -g` for Windows filename patterns instead of wildcard path arguments.
+
+### 2026-07-10 — delegated audit searched a missing optional env file
+- What happened: The order-matching audit included a nonexistent `.env.example` path in a read-only `rg` call.
+- Root cause: The delegated lane repeated the existing optional-path violation instead of discovering the file first.
+- Fix: Stop using the missing path and rely only on confirmed model, route, and config files; the existing hard rule remains in force.
+- Rule: Never include optional or unverified paths in a required diagnostic command; verify each path first or handle no-match separately.
+
+### 2026-07-10 — .NET misread the Quick Share ZIP metadata
+- What happened: `.NET ZipArchive` reported every JPG as 4,294,967,295 bytes and could not open the first entry, making the 54 MB archive look like a 309 GB zip-bomb.
+- Root cause: The Quick Share ZIP uses ZIP64 sentinel metadata that this .NET reader does not resolve correctly.
+- Fix: A delegated check validated and extracted the archive once with Windows `bsdtar`: 72 regular JPGs totaling 56,237,022 bytes, with no nested archives.
+- Rule: For this Quick Share archive, use controlled `bsdtar` staging; .NET `ZipArchive` misreads its ZIP64 sentinel metadata.
 
 ### 2026-07-10 — Chrome synthesized scrolling timed out again
 - What happened: The correctly shaped upward scroll still timed out in Chrome while trying to bring the production carousel into view.
