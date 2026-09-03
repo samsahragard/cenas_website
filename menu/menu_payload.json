@@ -1,0 +1,650 @@
+[
+ {
+  "section": "Great Dips & Apps",
+  "name": "Queso Dip",
+  "price": "8.99",
+  "description": "Size: Half-Pint (8 oz) $8.99 · Pint (16 oz) $16.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__queso-dip.jpg",
+  "desc_len": 50
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Guacamole Dip",
+  "price": "10.49",
+  "description": "Size: Half-Pint (8 oz) $10.49 · Pint (16 oz) $20.38",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__guacamole-dip.jpg",
+  "desc_len": 51
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Empanadas",
+  "price": "8.49",
+  "description": "Jumbo empanadas made from scratch with homemade masa, stuffed with chipotle chicken and Monteray-chipotle jocoque cream cabbage blend. Topped with queso fresco and diced tomatoes for the perfect finish\n\nQuantity: One $8.49 · Two $10.99 · Three $13.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__empanadas.jpg",
+  "desc_len": 250
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Stuffed Jalapenos",
+  "price": "7.99",
+  "description": "Jalapenos stuffed with freshly made pork, mix of cheeses and chipotle cream for dipping.\n\nQuantity: Four $7.99 · Six $10.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__stuffed-jalapenos.jpg",
+  "desc_len": 123
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Taquitos",
+  "price": "14.29",
+  "description": "Chicken rolled in corn tortillas, lettuce, tomatoes, guacamole, sour cream, and a cup of queso",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__taquitos.jpg",
+  "desc_len": 94
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Quesadillas",
+  "price": "14.19",
+  "description": "Served with guacamole sour cream and jalapenos.\n\nChoice of: Cheese $14.19 · Shredded Chicken $14.89 · BBQ Pork $15.19 · Sauteed Spinach $15.39 · Sauteed Shrimp $15.89 · Grilled Chicken $15.89 · Sauteed Vegetables $15.99 · Beef Fajita $18.39",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__quesadillas.jpg",
+  "desc_len": 240
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Nachos",
+  "price": "14.49",
+  "description": "Refritos, melted cheddar, and Monterey cheeses. Served with guacamole, sour cream, and jalapenos.\n\nChoice of: Bean And Cheese $14.49 · Shredded Chicken $15.39 · Ground Beef $15.39 · Sauteed Vegtables $15.49 · Grilled Chicken $15.89 · Beef Fajita & Grilled Chicken $16.89 · Beef Fajita $17.89",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__nachos.jpg",
+  "desc_len": 291
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Supreme Nachos",
+  "price": "17.89",
+  "description": "Mountain of chips with Meat, Queso, Lettuce, Sour Cream, Guacamole, Tomatoes & Jalapenos\n\nChoice of: Ground Beef $17.89 · Shredded Chicken $17.89 · Sauteed Vegtables $17.99 · Grilled Chicken $18.39 · Beef Fajita & Grilled Chicken $19.39 · Beef Fajita $20.39",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__supreme-nachos.jpg",
+  "desc_len": 257
+ },
+ {
+  "section": "Great Dips & Apps",
+  "name": "Sampler",
+  "price": "16.49",
+  "description": "Beef Nachos, chicken quesadillas, chicken taquitos, stuffed jalapenos, Queso Blanco, seafood monty, sour cream, guacamole, and jalapenos.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/appetizers__sampler.jpg",
+  "desc_len": 137
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Cenaladas",
+  "price": "16.49",
+  "description": "Cheese enchilada with gravy, ground beef enchilada with queso, shredded chicken enchilada with poblano, a pork tamale & sliced avocado\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__cenaladas.jpg",
+  "desc_len": 194
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Cheese Enchiladas",
+  "price": "13.79",
+  "description": "Chili con carne, sour cream on top and grated cheese.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__cheese-enchiladas.jpg",
+  "desc_len": 113
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Ground Beef Enchiladas",
+  "price": "14.79",
+  "description": "Chili con carne, sour cream, and grated cheeses.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__ground-beef-enchiladas.jpg",
+  "desc_len": 108
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Shredded Chicken Enchiladas",
+  "price": "15.90",
+  "description": "Hand shredded chicken, smothered in poblano cream sauce, sour cream and grated cheese\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__shredded-chicken-enchiladas.jpg",
+  "desc_len": 145
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Beef Fajita Enchiladas",
+  "price": "17.99",
+  "description": "Beef fajita, your selection of sauce, sour cream, and grated cheeses. Sauces: chili con carne, queso Blanco, ranchero sauce tomatillo, or poblano cream.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__beef-fajita-enchiladas.jpg",
+  "desc_len": 212
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Chicken Fajita Enchiladas",
+  "price": "16.69",
+  "description": "Chicken fajita, your selection of sauce, sour cream, and grated cheeses. Sauces: chili con carne, queso Blanco, ranchero sauce tomatillo, or poblano cream.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__chicken-fajita-enchiladas.jpg",
+  "desc_len": 215
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Pollo Felis",
+  "price": "15.39",
+  "description": "Corn tortillas filled with hand-shredded chicken enchiladas, each with a different sauce. One with poblano, one with tomatillo, and one with ranchero sauce. Topped with fresh sliced avocado\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__pollo-felis.jpg",
+  "desc_len": 249
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Pork Enchiladas",
+  "price": "14.49",
+  "description": "Corn tortillas filled with hand-shredded pork smothered in poblano cream.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__pork-enchiladas.jpg",
+  "desc_len": 133
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Spinach Enchiladas",
+  "price": "14.29",
+  "description": "House-made spinach mix, smothered in your choice of sauce, sour cream and grated cheese\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__spinach-enchiladas.jpg",
+  "desc_len": 147
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Veggie Enchiladas",
+  "price": "14.29",
+  "description": "Sauteed veggies, smothered in your choice of sauce, sour cream and grated cheese\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__veggie-enchiladas.jpg",
+  "desc_len": 140
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Seafood Enchiladas",
+  "price": "17.89",
+  "description": "Sautéed shrimp and crawfish covered in seafood sauce, sour cream, grated cheese, and set of jumbo shrimp. Served with pico mango and pickled onions.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__seafood-enchiladas.jpg",
+  "desc_len": 208
+ },
+ {
+  "section": "Enchiladas",
+  "name": "Tamales",
+  "price": "15.49",
+  "description": "Pork tamales chili con carne, sour cream, and grated cheeses.\n\nTamale Style: Classic (In Husk) $15.49 · Dressed (Gravy On Top) $15.49\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/enchiladas__tamales.jpg",
+  "desc_len": 192
+ },
+ {
+  "section": "Soup & Salads",
+  "name": "Fajita Salad",
+  "price": "15.39",
+  "description": "A refreshing mix of greens, Roma tomatoes, grated cheese, corn, cucumbers, and avocado, and tortilla strips.\n\nChoice of: Sauteed Vegtables* $15.39 · Grilled Chicken $16.39 · Pork $16.39 · Beef & Grilled Chicken $17.39 · Jumbo Grilled Shrimp (8) $17.89 · Beef $18.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/soup-salad__fajita-salad.jpg",
+  "desc_len": 265
+ },
+ {
+  "section": "Soup & Salads",
+  "name": "Taco Salad",
+  "price": "14.59",
+  "description": "Shredded chicken or ground beef, greens, tomatoes, and grated cheeses. Lightly dressed with guacamole and sour cream dressing.\n\nChoice of: Ground Beef $14.59 · Shredded Chicken $14.59 · Sauteed Vegtables $15.09 · Ground Beef & Shredded Chicken $15.09 · Pork $16.59 · Grilled Chicken $16.59 · Jumbo Grilled Shrimp (8) $17.09 · Beef Fajita & Grilled Chicken $17.59 · Beef Fajita $18.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/soup-salad__taco-salad.jpg",
+  "desc_len": 383
+ },
+ {
+  "section": "Soup & Salads",
+  "name": "Soup & Salad",
+  "price": "18.89",
+  "description": "A smaller version of our fajita salad and tortilla soup\n\nChoice of: Sauteed Vegtables* $18.89 · Grilled Chicken $19.89 · Pork $19.89 · Beef Fajita & Grilled Chicken $20.89 · Jumbo Grilled Shrimp (8) $21.39 · Beef Fajita $22.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/soup-salad__soup-salad.jpg",
+  "desc_len": 226
+ },
+ {
+  "section": "Soup & Salads",
+  "name": "Mango & Shrimp Salad",
+  "price": "18.49",
+  "description": "Grilled jumbo shrimp, a refreshing mix of greens, diced mango, tomatoes, cucumbers, avocado, sweet ginger, and grated cheese.\n\nDressing: No Dressing $18.49 · Ranch $18.49 · Avocado Ranch $18.49 · Honey Mustard $18.49 · Sweet Ginger $18.49 · Red Sauce $18.49 · Green Sauce $18.49 · Queso $19.49 · Street Taco Sauce (Spicy) $19.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/soup-salad__mango-shrimp-salad.jpg",
+  "desc_len": 328
+ },
+ {
+  "section": "Soup & Salads",
+  "name": "Tortilla Soup",
+  "price": "8.89",
+  "description": "Shredded chicken and fresh hearty vegetables, rice.\n\nCup or Bowl: Cup (24 oz) $8.89 · Bowl (32 oz) $10.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/soup-salad__tortilla-soup.jpg",
+  "desc_len": 105
+ },
+ {
+  "section": "Soup & Salads",
+  "name": "Dinner Salad",
+  "price": "5.49",
+  "description": "Small side house salad",
+  "image_url": null,
+  "desc_len": 22
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Street Tacos",
+  "price": "15.29",
+  "description": "Corn tortillas, fajita, grilled onions, cilantro, taco sauce, and a grilled jalapeno. Not served with rice and beans.\n\nChoice of: Chicken Fajita $15.29 · Beef & Chicken Fajita $16.29 · Beef Fajita $16.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__street-tacos.jpg",
+  "desc_len": 203
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Pork Tacos",
+  "price": "14.49",
+  "description": "Corn tortillas, shredded pork, queso fresco, cilantro, habanero onions, and taco sauce. Not served with rice and beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__pork-tacos.jpg",
+  "desc_len": 119
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Tacos Al Carbon (2)",
+  "price": "16.79",
+  "description": "Flour tortillas stuffed beef or chicken fajitas. Served with guacamole, Queso Blanco, and pico de gallo.\n\nChoice of: Chicken Fajita $16.79 · Sauteed Vegetable $17.69 · Beef & Chicken Fajita $18.09 · Beef Fajita $19.09\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__tacos-al-carbon-2.jpg",
+  "desc_len": 276
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Tex-Mex Tacos (3)",
+  "price": "15.49",
+  "description": "Three classic tacos with your choice of crispy corn or soft flour tortillas, lettuce, tomatoes, and grated cheese\n\nChoice of: Ground Beef $15.49 · Shredded Chicken $15.49 · Ground Beef & Shredded Chicken $15.89 · Chicken Fajita $16.49 · Sauteed Vegetables $16.49 · Pork $16.49 · Beef & Chicken Fajita $17.49 · Beef Fajita $18.49\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__tex-mex-tacos-3.jpg",
+  "desc_len": 387
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Tostada Dinner",
+  "price": "13.89",
+  "description": "Tostadas layered with refried beans, lettuce mix, grated cheeses, and diced Roma tomatoes\n\nChoice of: Refried Beans (no meat) $13.89 · Ground Beef $14.89 · Shredded Chicken $14.89 · Sauteed Vegetable $14.89 · Pork $14.89 · Chicken Fajita $15.39 · Ground Beef & Shredded Chicken $15.49 · Beef & Chicken Fajita $16.49 · Beef Fajita $16.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__tostada-dinner.jpg",
+  "desc_len": 336
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Chicken Flautas (4)",
+  "price": "14.29",
+  "description": "Corn tortillas stuffed with shredded chicken, crisped to perfection dressed in lettuce, tomatoes, guacamole, sour cream. Served with queso Blanco\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__chicken-flautas-4.jpg",
+  "desc_len": 205
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "1 Shrimp & 1 Fish Taco",
+  "price": "17.99",
+  "description": "Flour tortillas dressed in chipotle, stuffed with tilapia and sauteed shrimp, pico mango, avocado, sweet ginger cabbage mix, and queso fresco.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__1-shrimp-1-fish-taco.jpg",
+  "desc_len": 202
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Shrimp Tacos (2)",
+  "price": "16.99",
+  "description": "Flour tortillas dressed in chipotle, stuffed sauteed shrimp, pico mango, avocado, sweet ginger cabbage mix, and queso fresco.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__shrimp-tacos-2.jpg",
+  "desc_len": 185
+ },
+ {
+  "section": "Tacos & Tostadas",
+  "name": "Fish Tacos (2)",
+  "price": "16.99",
+  "description": "Flour tortillas dressed in chipotle, stuffed tilapia, pico mango, avocado, sweet ginger cabbage mix, and queso fresco.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/tacos-tostadas__fish-tacos-2.jpg",
+  "desc_len": 178
+ },
+ {
+  "section": "Fajitas",
+  "name": "Fajitas For One",
+  "price": "18.49",
+  "description": "Served with fresh guacamole, sour cream, lettuce, pico de gallo, homemade flour tortillas, Cenas rice, and choice of charro, refried or black beans.\n\nChoice of: Chicken $18.49 · Sauteed Veggie $18.49 · Combo $21.59 · Beef $24.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__fajitas-for-one.jpg",
+  "desc_len": 228
+ },
+ {
+  "section": "Fajitas",
+  "name": "Fajitas For Two",
+  "price": "36.98",
+  "description": "Served with fresh guacamole, sour cream, lettuce, pico de gallo, homemade flour tortillas, Cenas rice, and choice of charro, refried or black beans.\n\nChoice of: Chicken $36.98 · Sauteed Veggie $36.98 · Combo $43.18 · Beef $48.98",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__fajitas-for-two.jpg",
+  "desc_len": 228
+ },
+ {
+  "section": "Fajitas",
+  "name": "Mazatlan For One",
+  "price": "21.98",
+  "description": "Fajitas, bacon-wrapped shrimp and pineapple butter, Baja baby back ribs, and grilled sausage.\n\nChoice of: Chicken $21.98 · Combo $24.68 · Beef $27.08\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__mazatlan-for-one.jpg",
+  "desc_len": 208
+ },
+ {
+  "section": "Fajitas",
+  "name": "Mazatlan For Two",
+  "price": "48.38",
+  "description": "Fajitas, bacon-wrapped shrimp and pineapple butter, Baja baby back ribs, and grilled sausage.\n\nChoice of: Chicken $48.38 · Combo $53.78 · Beef $58.58\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__mazatlan-for-two.jpg",
+  "desc_len": 208
+ },
+ {
+  "section": "Fajitas",
+  "name": "Cancun For One",
+  "price": "21.99",
+  "description": "Fajitas, four jumbo shrimp wrapped in bacon stuffed with Monterey cheese, peppers, and pineapple butter.\n\nChoice of: Chicken $21.99 · Combo $24.99 · Beef $26.19\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__cancun-for-one.jpg",
+  "desc_len": 219
+ },
+ {
+  "section": "Fajitas",
+  "name": "Cancun For Two",
+  "price": "47.98",
+  "description": "Fajitas, four jumbo shrimp wrapped in bacon stuffed with Monterey cheese, peppers, and pineapple butter.\n\nChoice of: Chicken $47.98 · Combo $53.98 · Beef $56.38\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__cancun-for-two.jpg",
+  "desc_len": 219
+ },
+ {
+  "section": "Fajitas",
+  "name": "Fajitas Del Mar For One",
+  "price": "21.99",
+  "description": "Fajitas topped with shrimp and crawfish seafood sauce and a pair of grilled jumbo shrimp.\n\nChoice of: Chicken $21.99 · Combo $23.99 · Beef $24.59\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__fajitas-del-mar-for-one.jpg",
+  "desc_len": 204
+ },
+ {
+  "section": "Fajitas",
+  "name": "Fajitas Del Mar For Two",
+  "price": "43.98",
+  "description": "Fajitas topped with shrimp and crawfish seafood sauce and a pair of grilled jumbo shrimp.\n\nChoice of: Chicken $43.98 · Combo $47.98 · Beef $49.18\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__fajitas-del-mar-for-two.jpg",
+  "desc_len": 204
+ },
+ {
+  "section": "Fajitas",
+  "name": "Jumbo Brochette Shrimp (8)",
+  "price": "24.99",
+  "description": "Eight brochette jumbo shrimp wrapped in bacon stuffed with peppers, Monterey cheese, and grilled veggies.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__jumbo-brochette-shrimp-8.jpg",
+  "desc_len": 165
+ },
+ {
+  "section": "Fajitas",
+  "name": "Grilled Shrimp Fajitas",
+  "price": "22.99",
+  "description": "Eight jumbo shrimp grilled to perfection & served atop fresh sauteed veggies\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__grilled-shrimp-fajitas.jpg",
+  "desc_len": 136
+ },
+ {
+  "section": "Fajitas",
+  "name": "El Jefe's Baja Baby Back Ribs",
+  "price": "20.99",
+  "description": "Baja baby back ribs, layered with bbq sauce & coleslaw, french fries\n\nSize: Half Rack $20.99 · Full Rack $33.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/off-the-grill__el-jefe-s-baja-baby-back-ribs.jpg",
+  "desc_len": 111
+ },
+ {
+  "section": "Favorites",
+  "name": "Pollo Del Mar",
+  "price": "18.19",
+  "description": "Shrimp and crawfish sauteed in a rich and creamy white wine sauce atop a grilled chicken breast with queso fresco. Served with habanero pickled onions and pico mango\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__pollo-del-mar.jpg",
+  "desc_len": 225
+ },
+ {
+  "section": "Favorites",
+  "name": "Chipotle Chicken",
+  "price": "17.79",
+  "description": "Grilled chicken breast topped with sautéed mushroom, fresh spinach, sausage chipotle cream. Served with pico mango.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__chipotle-chicken.jpg",
+  "desc_len": 175
+ },
+ {
+  "section": "Favorites",
+  "name": "Pollo Poblano",
+  "price": "17.49",
+  "description": "Grilled chicken breast and sauteed garden vegetables in a creamy poblano sauce topped with a mix of melted cheeses. Served with habanero onions and pico mango.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__pollo-poblano.jpg",
+  "desc_len": 219
+ },
+ {
+  "section": "Favorites",
+  "name": "Fish El Rey",
+  "price": "17.99",
+  "description": "Shrimp & craw-fish sauteed in a rich creamy white wine sauce atop a grilled tilapia filet with queso fresco - with habanero pickled onions & pico mango\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__fish-el-rey.jpg",
+  "desc_len": 211
+ },
+ {
+  "section": "Favorites",
+  "name": "Fajita Bowl",
+  "price": "13.99",
+  "description": "A large bowl filled with fajita meat, beans, Cenas rice, queso Blanco and grated cheese.\n\nChoice of: Shredded Chicken $13.99 · Ground Beef $14.99 · Freshly Sauteed Vegetables $14.99 · Pork $15.89 · Chicken $16.19 · Mixed $16.19 · Beef $17.19",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__fajita-bowl.jpg",
+  "desc_len": 241
+ },
+ {
+  "section": "Favorites",
+  "name": "Steam Tampiquena",
+  "price": "19.99",
+  "description": "A large slab of beef skirt steak, pico de gallo, and Monterey cheese. Served with flour tortillas and a cheese enchilada covered in savory gravy. Accompanied by a house-made jalapeno sweet ginger salad mix",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__steam-tampiquena.jpg",
+  "desc_len": 205
+ },
+ {
+  "section": "Favorites",
+  "name": "Pollo Con Mango",
+  "price": "16.99",
+  "description": "Grilled chicken breast topped with fresh mango. Smothered in queso Blanco. Served with house pickled habanero onion, pico mango and sliced avocado.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__pollo-con-mango.jpg",
+  "desc_len": 207
+ },
+ {
+  "section": "Favorites",
+  "name": "Chili Relleno",
+  "price": "14.29",
+  "description": "a fresh poblano pepper fire roasted and stuffed with shredded chicken, grated cheese, lightly fried set atop poblano cream. Dressed with ranchera sauce, sour cream, queso fresco. Served with avocado and pico de gallo.\n\nChoice of: Mixed Cheeses (no meat) $14.29 · Shredded Chicken $15.29 · Ground Beef $15.29 · Pork $15.29 · Chicken Fajita $18.29 · Combo Fajita $18.29 · Beef Fajita $18.29\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__chili-relleno.jpg",
+  "desc_len": 447
+ },
+ {
+  "section": "Favorites",
+  "name": "Seafood Bowl",
+  "price": "14.19",
+  "description": "A large bowl filled with shrimp and crawfish in a creamy white wine sauce, beans, Cenas rice, queso Blanco and grated cheese.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/cenas-favorites__seafood-bowl.jpg",
+  "desc_len": 125
+ },
+ {
+  "section": "Favorites",
+  "name": "Sauteed Vegetable Bowl",
+  "price": "14.99",
+  "description": "A large bowl filled with sautéed vegetables, black beans, Cenas rice, Queso Blanco, grated cheese. Served with flour tortillas.",
+  "image_url": null,
+  "desc_len": 127
+ },
+ {
+  "section": "Favorites",
+  "name": "Chipotle Portobello Mushroom",
+  "price": "13.39",
+  "description": "Your choice of sauteed shrimp or spinach with chipotle cream, set atop thick & meaty portobello mushroom & served with pico de gallo, sliced avocado\n\nChoice of: Sauteed Spinach $15.29 · Sauteed Shrimp $17.29 · Sauteed Shrimp & Spinach $18.89\nServed with your choice of refried, charro or black beans.",
+  "image_url": null,
+  "desc_len": 300
+ },
+ {
+  "section": "Combinations",
+  "name": "Plato Guzman",
+  "price": "15.89",
+  "description": "Ground beef enchilada, shredded chicken enchilada covered in chili gravy. A crispy ground beef taco, and a crispy shredded chicken taco. Served with Aguirre's rice.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__plato-guzman.jpg",
+  "desc_len": 224
+ },
+ {
+  "section": "Combinations",
+  "name": "Plato Salinas",
+  "price": "15.89",
+  "description": "Shredded chicken enchilada with tomatillo sauce, chicken flauta, chicken fajita nachos. Served with pico de gallo, sour cream, and guacamole. Served with Aguirre's rice.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__plato-salinas.jpg",
+  "desc_len": 229
+ },
+ {
+  "section": "Combinations",
+  "name": "Plato Suarez",
+  "price": "15.39",
+  "description": "Cheese enchilada, bean and cheese tostada, crispy ground beef taco. Served with sour cream, guacamole, and Aguirre's rice.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__plato-suarez.jpg",
+  "desc_len": 182
+ },
+ {
+  "section": "Combinations",
+  "name": "Plato Vaquero",
+  "price": "15.89",
+  "description": "Cheese enchilada, ground beef enchilada with gravy, pork tamale, and a cup of queso. Served with sour cream and guacamole. Served with Aguirre's rice.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__plato-vaquero.jpg",
+  "desc_len": 210
+ },
+ {
+  "section": "Combinations",
+  "name": "Combo Special",
+  "price": "13.49",
+  "description": "Crispy ground beef taco, bean, and cheese tostada. Topped, large queso chip, pico de gallo, guacamole, and sour cream. Not served with rice and beans. Served with Aguirre's rice.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__combo-special.jpg",
+  "desc_len": 178
+ },
+ {
+  "section": "Combinations",
+  "name": "Laredo Combo",
+  "price": "16.49",
+  "description": "Grilled chicken quesadillas, flour tortilla stuffed with beef fajita covered in Queso Blanco. Served with sour cream and guacamole. Served with Aguirre's rice.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__laredo-combo.jpg",
+  "desc_len": 219
+ },
+ {
+  "section": "Combinations",
+  "name": "Pollo Campero",
+  "price": "15.99",
+  "description": "Shredded chicken enchilada with poblano cream, flauta, flour tortilla stuffed with chicken fajita. Served with sour cream, guacamole, pico de gallo, and Aguirre's rice.\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__pollo-campero.jpg",
+  "desc_len": 228
+ },
+ {
+  "section": "Combinations",
+  "name": "Plato Catrina",
+  "price": "13.39",
+  "description": "bean & cheese tostada, large queso chip, two cheese enchiladas topped with queso, rice & beans",
+  "image_url": null,
+  "desc_len": 94
+ },
+ {
+  "section": "Combinations",
+  "name": "Pancho Villa",
+  "price": "13.39",
+  "description": "Crispy ground beef taco, guacamole, two cheese enchiladas topped with chili con carne, rice & beans",
+  "image_url": null,
+  "desc_len": 99
+ },
+ {
+  "section": "Combinations",
+  "name": "Plato Sombrero",
+  "price": "13.39",
+  "description": "Soft ground beef taco, large chili con queso chip, cheese enchilada topped with gravy, single tamale, rice & beans",
+  "image_url": null,
+  "desc_len": 114
+ },
+ {
+  "section": "Combinations",
+  "name": "Seafood Combo",
+  "price": "15.69",
+  "description": "Shrimp & craw-fish sauteed in a rich creamy white wine sauce atop a grilled tilapia filet with queso fresco - with habanero pickled onions & pico mango\n\nHouse-made dressings: No Dressing $15.69 · Ranch $15.69 · Avocado Ranch $15.69 · Honey Mustard $15.69 · Sweet Ginger $15.69 · Red Sauce $15.69 · Green Sauce $15.69 · Queso $16.69 · Street Taco Sauce (Spicy) $16.69",
+  "image_url": null,
+  "desc_len": 366
+ },
+ {
+  "section": "Combinations",
+  "name": "El Tex Mex",
+  "price": "14.99",
+  "description": "A classic combination of a crispy ground beef taco, a large chili con queso chip, a bean tostada, and two cheese enchiladas topped with savory gravy\n\nServed with your choice of refried, charro or black beans.",
+  "image_url": null,
+  "desc_len": 208
+ },
+ {
+  "section": "Combinations",
+  "name": "Veggie Los Cabos",
+  "price": "14.74",
+  "description": "Grilled bell pepper stuffed with sauteed veggies covered in poblano cream & a cheese enchilada in poblano cream, served with sliced avocado & pico de gallo",
+  "image_url": null,
+  "desc_len": 155
+ },
+ {
+  "section": "Combinations",
+  "name": "Veggie Suarez",
+  "price": "14.89",
+  "description": "Cheese enchilada with poblano cream, black bean and cheese tostada, and veggie taco. Served with sour cream and guacamole.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/combination__veggie-suarez.jpg",
+  "desc_len": 122
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Burrito Con Queso",
+  "price": "14.49",
+  "description": "Choice of: Refried Beans (no meat) $14.49 · Shredded Chicken $15.99 · Ground Beef $15.99 · Ground Beef & Shredded Chicken $16.39 · Pork $16.49 · Sauteed Vegetables $16.98 · Chicken Fajita $16.99 · Sauteed Shrimp $18.49 · Beef & Chicken Fajita $18.49 · Beef Fajita $19.49\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__burrito-con-queso.jpg",
+  "desc_len": 329
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Tiago Burrito",
+  "price": "14.49",
+  "description": "Choice of: Refried Beans (no meat) $14.49 · Ground Beef $15.99 · Shredded Chicken $15.99 · Ground Beef & Shredded Chicken $16.39 · Pork $16.49 · Sauteed Vegetables $16.98 · Chicken Fajita $17.02 · Sauteed Shrimp $18.49 · Beef & Chicken Fajita $18.49 · Beef Fajita $19.49\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__tiago-burrito.jpg",
+  "desc_len": 329
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Chimi & Changa",
+  "price": "15.99",
+  "description": "Choice of: Sauteed Vegetables $15.99 · Ground Beef $16.49 · Shredded Chicken $16.49 · Ground Beef & Shredded Chicken $16.99 · Pork $17.29 · Chicken Fajita $17.49 · Beef & Chicken Fajita $18.99 · Sauteed Shrimp $19.49 · Beef Fajita $19.99\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__chimi-changa.jpg",
+  "desc_len": 296
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Mexican Wrap",
+  "price": "14.49",
+  "description": "Choice of: Refried Beans (no meat) $14.49 · Sauteed Vegetables $15.99 · Ground Beef $16.49 · Shredded Chicken $16.49 · Ground Beef & Shredded Chicken $16.99 · Pork $17.29 · Chicken Fajita $17.49 · Combo Fajita $18.99 · Beef Fajita $19.99\nServed with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__mexican-wrap.jpg",
+  "desc_len": 296
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Seafood Burrito",
+  "price": "16.39",
+  "description": "Served with your choice of refried, charro or black beans.",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__seafood-burrito.jpg",
+  "desc_len": 58
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Burger",
+  "price": "15.99",
+  "description": "Size: Half Pound $15.99 · One Pound $20.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__burger.jpg",
+  "desc_len": 42
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Tejano Cheese",
+  "price": "16.99",
+  "description": "Size: Half Pound $16.99 · One Pound $21.49",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__tejano-cheese.jpg",
+  "desc_len": 42
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Tejano Bacon Cheese",
+  "price": "17.99",
+  "description": "Size: Half Pound $17.99 · One Pound $21.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__tejano-bacon-cheese.jpg",
+  "desc_len": 42
+ },
+ {
+  "section": "Burritos & Burgers",
+  "name": "Avocado",
+  "price": "17.99",
+  "description": "Size: Half Pound $17.99 · One Pound $22.99",
+  "image_url": "https://raw.githubusercontent.com/samsahragard/cenas_website/menu-images/menu/burritos-burgers__avocado.jpg",
+  "desc_len": 42
+ }
+]
