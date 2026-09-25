@@ -1,9 +1,13 @@
+import mimetypes
 import os
 from urllib.parse import quote
 
 from flask import Flask, Response, redirect, request, send_from_directory
 
 BASE = os.path.dirname(os.path.abspath(__file__))
+
+# Bar Shelf display images ship as AVIF too; older Pythons do not know the type.
+mimetypes.add_type("image/avif", ".avif")
 
 # Product media uploaded by the old site lives on the service's persistent
 # disk (/data/media/products). The app's corporate-order pages load these
@@ -14,7 +18,7 @@ PRODUCT_MEDIA = "/data/media/products"
 # Legacy path -> section on the new single-page site (301 permanent).
 REDIRECTS = {
     "/menu": "/#menu",
-    "/drinks": "/#menu",
+    "/drinks": "/#bar",
     "/coffee": "/#menu",
     "/vegetarian_menu": "/#menu",
     "/orderlocation": "/#order",
