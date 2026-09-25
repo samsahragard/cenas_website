@@ -148,15 +148,19 @@ class BarShelfPageTests(unittest.TestCase):
         response = self.get("/")
         self.assertEqual(response.status_code, 200)
         page = response.get_data(as_text=True)
-        self.assertIn('id="page-bar"', page)
-        self.assertIn('id="bar-shelf"', page)
-        self.assertIn("/static/data/bar_shelf.json", page)
-        # Loaded on demand by the inline loader, never as an eager tag.
+        # The shelf lives at the bottom of Menu > Tequila (no separate #bar page or nav item).
+        self.assertNotIn('id="page-bar"', page)
+        self.assertNotIn('data-link="bar"', page)
+        tequila = page[page.index('data-mpanel="tequila"'):page.index('data-mpanel="coffee"')]
+        self.assertIn('id="bar-shelf"', tequila)
+        self.assertEqual(page.count('id="bar-shelf"'), 1)
+        self.assertIn("/static/data/bar_shelf.json", tequila)
+        # Loaded on demand by the inline loader (when the shelf nears the screen), never eagerly.
         self.assertIn("/static/js/bar_shelf.js", page)
         self.assertNotIn('<script src="/static/js/bar_shelf.js', page)
-        self.assertIn("ck:pageshow", page)
-        self.assertIn("'bar'", page)
-        self.assertIn('data-link="bar"', page)
+        self.assertIn("IntersectionObserver", page)
+        # Old #bar links are routed to the shelf on the Menu page.
+        self.assertIn("ckBarDeepLink", page)
         self.assertIn("split('/')[0]", page)
         # Bottle data lives only in the JSON.
         self.assertNotIn("static/images/bottles/", page)
@@ -190,7 +194,7 @@ class BarShelfPageTests(unittest.TestCase):
         self.assertIn("prefers-reduced-motion: reduce", script)
         self.assertIn("motion=reduce", script)
         self.assertIn("aria-roledescription", script)
-        self.assertIn("history.replaceState", script)
+        self.assertIn("ckBarDeepLink", script)
         self.assertIn("cubic-bezier(.23,1,.32,1)", script)
         self.assertNotIn("location.hash =", script)
         self.assertNotIn("static/images/bottles", script)

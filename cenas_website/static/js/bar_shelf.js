@@ -1,8 +1,10 @@
-/* Cena's Kitchen \u00b7 Bar Shelf (#bar)
+/* Cena's Kitchen \u00b7 Bar Shelf (bottom of Menu > Tequila)
  *
- * Loaded lazily by the small inline loader in index.html on the first
- * `ck:pageshow` event for the bar page, so the home page never downloads it.
+ * Loaded lazily by the small inline loader in index.html the first time the
+ * shelf comes near the screen, so no other page ever downloads it.
  * Everything on the shelf is rendered from /static/data/bar_shelf.json.
+ * Old #bar/<category>/<bottle> links are sent here by the page router, which
+ * leaves the link in window.ckBarDeepLink for the shelf to open.
  *
  * The shelf is a ring: every bottle of the current filter sits at a slot
  * offset o from the centre (0). A bottle's pose (x, y, depth, scale) is a
@@ -14,11 +16,12 @@
   'use strict';
 
   var root = document.getElementById('bar-shelf');
-  var page = document.getElementById('page-bar');
-  if (!root || !page || root.getAttribute('data-bs-init')) return;
+  if (!root || root.getAttribute('data-bs-init')) return;
   root.setAttribute('data-bs-init', '1');
 
   var DATA_URL = root.getAttribute('data-src') || '/static/data/bar_shelf.json';
+  // The shelf sits in a menu tab: it is "shown" only while that tab is laid out.
+  function shown() { return root.offsetWidth > 0; }
   var EASE_CSS = 'cubic-bezier(.23,1,.32,1)';
   var ease = bezier(0.23, 1, 0.32, 1);
   var THETA = Math.PI / 5;         // 36 degrees between neighbouring slots
@@ -712,11 +715,7 @@
   }
 
   function syncHash() {
-    if (!page.classList.contains('is-active') || !history.replaceState) return;
-    var b = currentBottle();
-    if (!b) return;
-    var h = '#bar/' + st.cat + '/' + b.id;
-    if (location.hash !== h) history.replaceState(history.state, '', location.pathname + location.search + h);
+    // The shelf lives on the Menu page, so the address stays #menu while guests spin it.
   }
 
   /* --------------------------------------------------------------- images */
@@ -1190,8 +1189,10 @@
   /* ----------------------------------------------------------- deep links */
 
   function fromHash() {
-    var parts = location.hash.slice(1).split('/');
-    if (parts[0] !== 'bar') return null;
+    var link = window.ckBarDeepLink || '';
+    window.ckBarDeepLink = '';
+    var parts = link.split('/');
+    if (parts[0] !== 'bar') return { cat: null, id: null };
     var cat = safeDecode(parts[1]), id = safeDecode(parts[2]);
     if (id && bottleById[id]) return { cat: bottleById[id].category, id: id };
     if (cat && catById[cat]) return { cat: cat, id: null };
@@ -1309,13 +1310,23 @@
   }
 
   document.addEventListener('ck:pageshow', function (e) {
-    if (e.detail && e.detail.page === 'bar') onShow();
+    if (e.detail && e.detail.page === 'menu' && shown()) onShow();
   });
-  window.addEventListener('hashchange', function () {
-    if (built && location.hash.slice(1).split('/')[0] === 'bar' && page.classList.contains('is-active')) restore(false);
-  });
-  window.addEventListener('resize', function () {
-    if (!built || !page.classList.contains('is-active')) return;
+  // Switching menu tabs (or any layout change) resizes the shelf: re-measure.
+  var lastW = 0;
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () {
+      var w = root.offsetWidth;
+      if (!w || w === lastW) return;
+      var first = !lastW;
+      lastW = w;
+      if (!built) return;
+      if (first) onShow(); else relayout();
+    }).observe(root);
+  }
+  window.addEventListener('resize', relayout);
+  function relayout() {
+    if (!built || !shown()) return;
     cancelAnimationFrame(measureRaf);
     measureRaf = requestAnimationFrame(function () {
       if (st.view === 'list' && st.autoList && window.innerWidth >= LIST_FIRST_BELOW) {
@@ -1333,7 +1344,7 @@
       edgeFade(ui.catsWrap, ui.cats);
       if (!ui.tabsWrap.hidden) edgeFade(ui.tabsWrap, ui.tabs);
     });
-  });
+  }
   function onReduceChange() {
     reduce = forceReduce || !!(reduceMq && reduceMq.matches);
     root.classList.toggle('bs-reduce', reduce);
@@ -1343,13 +1354,5 @@
     else if (reduceMq.addListener) reduceMq.addListener(onReduceChange);
   }
 
-  if (page.classList.contains('is-active')) load();
-  else {
-    var once = function (e) {
-      if (!e.detail || e.detail.page !== 'bar') return;
-      document.removeEventListener('ck:pageshow', once);
-      if (!built && !root.classList.contains('bs-loading')) load();
-    };
-    document.addEventListener('ck:pageshow', once);
-  }
+  load();
 })();

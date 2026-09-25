@@ -770,29 +770,18 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
   #page-contact .cq b{font-size:.72rem}
 }
 /* Menu > Tequila: one card into the Bar Shelf (replaces the long bottle list) */
-.menu-panel.is-active>.bs-menucard{grid-column:1 / -1}
-.bs-menucard{display:flex;align-items:center;gap:clamp(1rem,3vw,2rem);margin:0 0 3.2rem;padding:clamp(1rem,3vw,1.6rem) clamp(1.1rem,3.5vw,2.2rem);border-radius:22px;border:1px solid rgba(233,162,59,.38);background:radial-gradient(120% 140% at 0% 0%,rgba(233,162,59,.16),transparent 55%),linear-gradient(160deg,#4a131b,#380f14);box-shadow:0 20px 44px rgba(18,3,6,.3);color:var(--bone);transition:transform .3s cubic-bezier(.2,.7,.3,1)}
-.bs-menucard-art{flex:none;display:flex;align-items:flex-end;height:112px}
-.bs-menucard-art img{height:100%;width:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))}
-.bs-menucard-art img:nth-child(1),.bs-menucard-art img:nth-child(3){height:82%}
-.bs-menucard-art img:nth-child(2){margin:0 -.35rem;position:relative;z-index:1}
-.bs-menucard-txt{display:flex;flex-direction:column;gap:.3rem;min-width:0}
-.bs-menucard-kicker{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ember)}
-.bs-menucard-title{font-family:var(--font-display);font-weight:900;font-size:clamp(1.35rem,3.4vw,2rem);line-height:1.1;color:var(--bone)}
-.bs-menucard-ar{display:inline-block;color:var(--ember);transition:transform .25s}
-.bs-menucard-sub{font-size:.92rem;color:rgba(243,231,209,.78)}
-@media(hover:hover) and (pointer:fine){.bs-menucard:hover{transform:translateY(-3px)}.bs-menucard:hover .bs-menucard-ar{transform:translateX(4px)}}
-@media(max-width:480px){.bs-menucard-art{height:84px}}
-@media(prefers-reduced-motion:reduce){.bs-menucard,.bs-menucard-ar{transition:none}.bs-menucard:hover,.bs-menucard:hover .bs-menucard-ar{transform:none}}
+.menu-panel.is-active>.bs-embed{grid-column:1 / -1;min-width:0}
+/* one column on phones: let the column shrink to the screen (a long nowrap heading had widened it past the edge) */
+@media (max-width:760px){.menu-panel.is-active[data-mpanel="tequila"]{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:379px){.menu-group .gh h3{white-space:normal}}
 /* ===== BAR SHELF ===== */
 /* #bar page: one category row, a circular shelf (stage) and a detail panel.
    Every class is prefixed bs-. Only transform + opacity ever animate here.
    Seamless: nothing sits in a box - the set fades into the page at its edges. */
-#page-bar .bs-phead{padding-top:clamp(1.1rem,2.6vw,1.9rem);padding-bottom:clamp(.6rem,1.4vw,.9rem)}
-#page-bar .bs-phead h1{font-size:clamp(2rem,4.4vw,3rem)}
-#page-bar .bs-phead .lead{margin-top:.35rem;font-size:clamp(1rem,1.8vw,1.15rem)}
-#page-bar .bs-phead .eyebrow{display:none}
-#page-bar .bs-section{padding-top:clamp(.2rem,1vw,.6rem);padding-bottom:clamp(2.2rem,6vw,4rem)}
+/* the shelf sits at the bottom of Menu > Tequila, as one of the menu's groups */
+.bs-embed{margin:.6rem 0 1.4rem;scroll-margin-top:96px}
+.bs-embed .gh{margin-bottom:.5rem}
+.bs-embed-lead{margin:0 0 .4rem;color:rgba(243,231,209,.78);font-size:.98rem;line-height:1.5}
 .bs-root{position:relative;
   --bs-ink:var(--bone);--bs-mute:rgba(243,231,209,.74);--bs-accent:var(--ember);--bs-link:var(--bone)}
 .bs-root [hidden]{display:none!important}
@@ -1139,7 +1128,6 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
         <div class="dd" role="menu">
           <a href="#menu" data-link="menu" data-tab="cenas"><span class="dot"></span>Cenas Kitchen</a>
           <a href="#menu" data-link="menu" data-tab="tequila"><span class="dot"></span>Tequila</a>
-          <a href="#bar" data-link="bar"><span class="dot"></span>Bar Shelf</a>
           <a href="#menu" data-link="menu" data-tab="coffee"><span class="dot"></span>Coffee</a>
           <a href="#menu" data-link="menu" data-tab="veg"><span class="dot"></span>Vegetarian</a>
         </div>
@@ -1182,7 +1170,6 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
       <div class="msub">
         <a href="#menu" data-link="menu" data-tab="cenas">Cenas Kitchen</a>
         <a href="#menu" data-link="menu" data-tab="tequila">Tequila</a>
-        <a href="#bar" data-link="bar">Bar Shelf</a>
         <a href="#menu" data-link="menu" data-tab="coffee">Coffee</a>
         <a href="#menu" data-link="menu" data-tab="veg">Vegetarian</a>
       </div>
@@ -1561,10 +1548,15 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
             <div class="mitem"><div class="txt"><span class="nm">Margarita</span></div></div>
           </div>
         </div>
-        <a class="bs-menucard" href="#bar" data-link="bar">
-          <span class="bs-menucard-art" aria-hidden="true"><img src="/static/images/bar/casamigos-reposado-side.webp" alt="" loading="lazy" decoding="async"><img src="/static/images/bar/don-julio-blanco-side.webp" alt="" loading="lazy" decoding="async"><img src="/static/images/bar/patron-silver-side.webp" alt="" loading="lazy" decoding="async"></span>
-          <span class="bs-menucard-txt"><span class="bs-menucard-kicker">Behind the bar</span><span class="bs-menucard-title">Browse every bottle on our shelf <span class="bs-menucard-ar" aria-hidden="true">&rarr;</span></span><span class="bs-menucard-sub">Tequila, mezcal, whiskey, rum, gin, wine and beer.</span></span>
-        </a>
+        <div class="menu-group bs-embed" id="bar">
+          <div class="gh"><h3>Our Bar Shelf</h3><span class="ln"></span></div>
+          <p class="bs-embed-lead">Every bottle behind our bar. Pick a spirit, then spin the shelf.</p>
+          <div class="bs-root" id="bar-shelf" data-src="/static/data/bar_shelf.json?v=20260925c" aria-busy="true">
+            <div class="bs-skel" aria-hidden="true"><div class="bs-skel-row"></div><div class="bs-skel-stage"><div class="bs-skel-plinth"></div></div></div>
+            <p class="bs-sr" role="status">Loading the shelf&hellip;</p>
+          </div>
+          <p class="bs-foot">Selection can vary between Copperfield and Tomball. Ask your bartender.</p>
+        </div>
         <p class="menu-note">Must be 21+. Please drink responsibly.</p>
       </div>
 
@@ -1625,19 +1617,6 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
 
   <div class="dark band section glow" style="padding-top:0">
     <div class="wrap"><h2 style="color:var(--bone)">Hungry yet?</h2><div class="btnrow"><a href="#order" data-link="order" class="btn btn-ember">Order online</a><a href="#locations" data-link="locations" class="btn btn-ghost">Find a location</a></div></div>
-  </div>
-</section>
-<!-- ============== BAR SHELF ============== -->
-<section class="page" id="page-bar">
-  <div class="dark phead glow bs-phead"><div class="wrap"><span class="eyebrow" style="justify-content:center;color:var(--ember)">Behind the bar</span><h1>Our Bar Shelf</h1><p class="lead">Pick a drink, then spin the shelf.</p></div></div>
-  <div class="dark section bs-section">
-    <div class="wrap">
-      <div class="bs-root" id="bar-shelf" data-src="/static/data/bar_shelf.json?v=20260925b" aria-busy="true">
-        <div class="bs-skel" aria-hidden="true"><div class="bs-skel-row"></div><div class="bs-skel-stage"><div class="bs-skel-plinth"></div></div></div>
-        <p class="bs-sr" role="status">Loading the shelf&hellip;</p>
-      </div>
-      <p class="bs-foot">21+ &middot; Selection can vary between Copperfield and Tomball. Ask your bartender.</p>
-    </div>
   </div>
 </section>
 <!-- ============== ORDER ============== -->
@@ -2693,23 +2672,34 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
 </button>
 
 <script>
-/* Bar Shelf: load its script only the first time the #bar page is shown. */
+/* Bar Shelf (bottom of Menu > Tequila): load its script the first time the shelf comes near the screen. */
 (function(){
-  function onShow(e){
-    if(!e.detail || e.detail.page!=='bar') return;
-    document.removeEventListener('ck:pageshow', onShow);
+  var el = document.getElementById('bar-shelf');
+  if(!el) return;
+  var done = false;
+  function go(){
+    if(done) return; done = true;
     var s = document.createElement('script');
-    s.src = '/static/js/bar_shelf.js?v=20260925b';
+    s.src = '/static/js/bar_shelf.js?v=20260925c';
     s.async = true;
     document.body.appendChild(s);
   }
-  document.addEventListener('ck:pageshow', onShow);
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++){ if(es[i].isIntersecting){ io.disconnect(); go(); return; } }
+    }, {rootMargin:'600px 0px'});
+    io.observe(el);
+  } else {
+    document.addEventListener('ck:pageshow', function f(e){
+      if(e.detail && e.detail.page==='menu'){ document.removeEventListener('ck:pageshow', f); go(); }
+    });
+  }
 })();
 </script>
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var pages = ['home','menu','bar','order','about','locations','catering','cater','cater-tomball','cater-copperfield','community','spirit','donations','careers','contact'];
+  var pages = ['home','menu','order','about','locations','catering','cater','cater-tomball','cater-copperfield','community','spirit','donations','careers','contact'];
   var currentMenuTab = 'cenas';
   var io = null;
   var pending = null;
@@ -2737,15 +2727,20 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
 
   function navigate(page, opts){
     opts = opts || {};
+    if(page==='bar'){
+      // Old #bar/<category>/<bottle> links: the shelf now lives at the bottom of Menu > Tequila.
+      window.ckBarDeepLink = location.hash.slice(1);
+      if(history.replaceState){ history.replaceState(history.state, '', location.pathname + location.search + '#menu'); }
+      page = 'menu'; opts = {tab:'tequila', scrollTo:'bar'};
+    }
     if(pages.indexOf(page)===-1){ page = 'home'; }
     var all = document.querySelectorAll('.page');
     for(var i=0;i<all.length;i++){ all[i].classList.remove('is-active'); }
     var el = document.getElementById('page-'+page);
     if(el){ el.classList.add('is-active'); }
     document.dispatchEvent(new CustomEvent('ck:pageshow',{detail:{page:page}}));
-    var navPage = page==='bar' ? 'menu' : page;
     var navs = document.querySelectorAll('[data-nav]');
-    for(var k=0;k<navs.length;k++){ navs[k].classList.toggle('is-current', navs[k].getAttribute('data-nav')===navPage); }
+    for(var k=0;k<navs.length;k++){ navs[k].classList.toggle('is-current', navs[k].getAttribute('data-nav')===page); }
     if(page==='menu'){ setMenuTab(opts.tab); }
     closeMobile();
     revealInit(el || document);
