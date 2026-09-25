@@ -205,5 +205,43 @@ class BarShelfPageTests(unittest.TestCase):
         self.assertTrue(response.headers["Location"].endswith("/#bar"), response.headers["Location"])
 
 
+class DrinkFlowPageTests(unittest.TestCase):
+    """Menu > Tequila drinks as an album-style cover flow (static/js/drink_flow.js)."""
+
+    def setUp(self):
+        self.client = create_app().test_client()
+
+    def get(self, url):
+        response = self.client.get(url)
+        self.addCleanup(response.close)
+        return response
+
+    def test_drink_groups_feed_the_flow(self):
+        page = self.get("/").get_data(as_text=True)
+        start = page.index('<div class="menu-panel" data-mpanel="tequila">')
+        tequila = page[start:page.index('<div class="menu-panel" data-mpanel="coffee">', start)]
+        # the four drink lists stay in the page (no-JS view and "See the full list")
+        self.assertEqual(tequila.count('<div class="menu-group" data-df>'), 4)
+        for name in ("Margarita Cantina", "Tequila Beyond the Rita", "Hand-Shaken Cocktails", "Mocktails"):
+            self.assertIn("<h3>%s</h3>" % name, tequila)
+        # the flow sits before them, hidden until its script runs
+        self.assertIn('id="drinks" hidden', tequila)
+        self.assertLess(tequila.index('id="drink-flow"'), tequila.index('data-df>'))
+        # loaded on demand only
+        self.assertIn("/static/js/drink_flow.js", page)
+        self.assertNotIn('<script src="/static/js/drink_flow.js', page)
+
+    def test_flow_script_rules(self):
+        response = self.get("/static/js/drink_flow.js")
+        self.assertEqual(response.status_code, 200)
+        script = response.get_data(as_text=True)
+        self.assertTrue(script.isascii())
+        self.assertIn("'use strict'", script)
+        self.assertIn("prefers-reduced-motion: reduce", script)
+        self.assertIn("Photo coming soon", script)
+        self.assertIn("aria-roledescription", script)
+        self.assertNotIn("location.hash =", script)
+
+
 if __name__ == "__main__":
     unittest.main()

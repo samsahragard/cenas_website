@@ -774,6 +774,76 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
 /* one column on phones: let the column shrink to the screen (a long nowrap heading had widened it past the edge) */
 @media (max-width:760px){.menu-panel.is-active[data-mpanel="tequila"]{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:379px){.menu-group .gh h3{white-space:normal}}
+/* ===== DRINK FLOW ===== */
+/* Menu > Tequila drinks as an album-style cover flow (static/js/drink_flow.js). Without the
+   script the drink lists (.menu-group[data-df]) show as before; "See the full list" brings them back. */
+.menu-panel.is-active>.df-embed{grid-column:1 / -1;min-width:0}
+.df-on>.menu-group[data-df]{display:none}
+.menu-panel.is-active.df-on.df-list>.menu-group[data-df]{display:block}
+.df-embed{margin:0 0 2.8rem;scroll-margin-top:96px}
+.df-embed .gh{margin-bottom:.6rem}
+.df-root{position:relative}
+.df-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.df-list .df-tabs-wrap,.df-list .df-stage{display:none}
+.df-back{min-height:44px;padding:.6rem 1.3rem;border-radius:100px;border:1px solid rgba(233,162,59,.55);background:none;color:var(--bone);font:700 .95rem/1.2 var(--font-body);cursor:pointer}
+.df-back[hidden]{display:none}
+/* tabs: the four drink groups, one row that scrolls sideways when it must */
+.df-tabs-wrap{position:relative;margin:0 calc(-1 * var(--pad)) .1rem}
+.df-tabs{display:flex;gap:.15rem;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:0 var(--pad)}
+.df-tabs::-webkit-scrollbar{display:none}
+.df-tab:first-child{margin-left:auto}
+.df-tab:last-child{margin-right:auto}
+.df-tab{flex:none;position:relative;min-height:44px;padding:.55rem .85rem;border:0;background:none;color:rgba(243,231,209,.74);font:700 1rem/1.2 var(--font-body);white-space:nowrap;cursor:pointer;transition:color .2s}
+.df-tab[aria-selected="true"]{color:var(--ember)}
+.df-tab[aria-selected="true"]::after{content:"";position:absolute;left:50%;bottom:.2rem;width:1.7rem;height:3px;border-radius:2px;background:var(--ember);transform:translateX(-50%)}
+.df-tab:focus-visible{outline-offset:-3px}
+@media(hover:hover) and (pointer:fine){.df-tab:hover{color:var(--bone)}}
+/* the stage: cards standing on a dark polished bar-top track, like the photos' own bar */
+.df-stage{position:relative;margin:0 calc(-1 * var(--pad))}
+@media(min-width:960px){.df-stage{margin:0}}
+.df-corner{display:flex;align-items:center;justify-content:center;gap:.9rem;min-height:40px;font-size:.82rem;line-height:1.2;color:rgba(243,231,209,.72)}
+.df-count{font-weight:700;letter-spacing:.02em}
+.df-listbtn{min-height:44px;padding:0 .3rem;border:0;background:none;color:var(--bone);font:800 .84rem/1.2 var(--font-body);text-decoration:underline;text-decoration-color:rgba(233,162,59,.7);text-underline-offset:4px;cursor:pointer}
+.df-scene{position:relative;height:var(--df-h,420px);overflow:hidden;touch-action:pan-y;-webkit-user-select:none;user-select:none;outline:none;border-radius:18px;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.df-scene:focus-visible{box-shadow:inset 0 0 0 3px var(--ember)}
+/* the track: a glossy dark bar top the cards stand on, dissolving into the page (no box) */
+.df-track{position:absolute;left:0;right:0;top:calc(var(--df-top) + var(--df-s) * .94);height:calc(var(--df-s) * .44);pointer-events:none;
+  background:radial-gradient(50% 90% at 50% 0%,rgba(255,236,210,.09),transparent 72%),linear-gradient(180deg,rgba(8,4,4,.62) 0%,rgba(8,4,4,.3) 45%,rgba(8,4,4,0) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,236,210,.12);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.df-cards{position:absolute;left:0;right:0;top:var(--df-top);height:var(--df-s);perspective:calc(var(--df-s) * 3.4);perspective-origin:50% 45%}
+.df-card{position:absolute;left:50%;top:0;width:var(--df-s);height:var(--df-s);margin:0 0 0 calc(var(--df-s) * -.5);padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:transform .48s cubic-bezier(.23,1,.32,1),opacity .48s cubic-bezier(.23,1,.32,1);will-change:transform}
+.df-card.df-front{cursor:default}
+.df-still .df-card,.df-drag .df-card,.df-reduce .df-card{transition:none}
+.df-face{position:absolute;inset:0;border-radius:10px;overflow:hidden;background:#110a09;box-shadow:0 22px 30px -12px rgba(0,0,0,.8),0 0 0 1px rgba(255,236,210,.08)}
+.df-face img,.df-refl img{display:block;width:100%;height:100%;object-fit:cover;object-position:54% 60%;transform:scale(1.05)}
+/* the reflection on the polished track: the same picture, flipped, fading out fast */
+.df-refl{position:absolute;left:0;right:0;top:calc(100% + 3px);height:100%;border-radius:10px;overflow:hidden;opacity:.3;transform:scaleY(-1);pointer-events:none;
+  -webkit-mask-image:linear-gradient(0deg,#000 0,rgba(0,0,0,.35) 18%,transparent 38%);mask-image:linear-gradient(0deg,#000 0,rgba(0,0,0,.35) 18%,transparent 38%)}
+/* no photo yet: a dark card in the photos' own palette */
+.df-soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:1.1rem;text-align:center;
+  background:radial-gradient(70% 60% at 50% 40%,rgba(233,162,59,.18),transparent 72%),radial-gradient(120% 100% at 50% 0%,#3a2320,#1a0f0d 62%,#0d0706);
+  box-shadow:inset 0 0 0 1px rgba(233,162,59,.4),inset 0 0 0 8px rgba(13,7,6,.85),inset 0 0 0 9px rgba(233,162,59,.22)}
+.df-soon::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.16;mix-blend-mode:overlay}
+.df-soon-name{position:relative;font-family:var(--font-display);font-weight:900;font-size:calc(var(--df-s) * .105);line-height:1.1;color:var(--bone)}
+.df-soon-sub{position:relative;font-weight:800;font-size:calc(var(--df-s) * .042);letter-spacing:.2em;text-transform:uppercase;color:var(--ember)}
+/* caption under the front card */
+.df-cap{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:start;gap:.5rem;max-width:760px;margin:0 auto;padding:.2rem var(--pad) 0}
+@media(min-width:960px){.df-cap{padding:.2rem 0 0}}
+.df-cap-txt{text-align:center;min-height:5.6em}
+.df-short .df-cap-txt{min-height:0}
+.df-name{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(1.45rem,3.4vw,1.95rem);line-height:1.15;color:var(--bone)}
+.df-tag{margin:.35rem 0 0;font-style:italic;font-size:1rem;line-height:1.4;color:var(--ember)}
+.df-desc{margin:.25rem auto 0;max-width:34rem;font-size:.98rem;line-height:1.5;color:rgba(243,231,209,.84)}
+.df-arrow{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-top:.1rem;padding:0;border-radius:50%;border:1px solid rgba(233,162,59,.45);background:rgba(20,8,8,.35);color:var(--bone);cursor:pointer;transition:opacity .2s}
+.df-next svg{transform:scaleX(-1)}
+.df-arrow:disabled{opacity:.3;cursor:default}
+.df-single .df-arrow{visibility:hidden}
+.df-note{margin:.8rem 0 0;text-align:center;font-style:italic;font-size:.84rem;color:rgba(243,231,209,.6)}
+.df-note[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){.df-card,.df-tab,.df-arrow{transition:none}}
 /* ===== BAR SHELF ===== */
 /* #bar page: one category row, a circular shelf (stage) and a detail panel.
    Every class is prefixed bs-. Only transform + opacity ever animate here.
@@ -1499,7 +1569,11 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
 
       <div class="menu-panel" data-mpanel="tequila">
         <div class="menu-intro"><h2>The Cantina</h2><p>Fresh-squeezed margaritas, hand-shaken cocktails, ice-cold beer and a shelf worth lingering at.</p></div>
-        <div class="menu-group">
+        <div class="menu-group df-embed" id="drinks" hidden>
+          <div class="gh"><h3>Margaritas &amp; Cocktails</h3><span class="ln"></span></div>
+          <div class="df-root" id="drink-flow"></div>
+        </div>
+        <div class="menu-group" data-df>
           <div class="gh"><h3>Margarita Cantina</h3><span class="ln"></span></div>
           <div class="mitems">
             <div class="mitem"><img class="mthumb" loading="lazy" src="/static/images/beer_rita.webp" alt="Beer Rita"><div class="txt"><span class="nm">Beer Rita</span><div class="ds"><em>Your two favorites in one</em> &mdash; Margarita and an ice-cold beer</div></div></div>
@@ -1515,7 +1589,7 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
           </div>
           <p class="menu-note">All margaritas served on the rocks.</p>
         </div>
-        <div class="menu-group">
+        <div class="menu-group" data-df>
           <div class="gh"><h3>Tequila Beyond the Rita</h3><span class="ln"></span></div>
           <div class="mitems">
             <div class="mitem"><div class="txt"><span class="nm">Reposado Old Fashioned</span><div class="ds"><em>Smooth with a hint of rich chocolate</em> &mdash; Milagro Reposado, agave, chocolate bitters, Angostura</div></div></div>
@@ -1525,7 +1599,7 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
             <div class="mitem"><img class="mthumb" loading="lazy" src="/static/images/mint_drink.webp" alt="Fresh Mint Paloma"><div class="txt"><span class="nm">Fresh Mint Paloma</span><div class="ds"><em>Cool and refreshing</em> &mdash; Patr&oacute;n Silver, fresh lime, grapefruit, Topo Chico</div></div></div>
           </div>
         </div>
-        <div class="menu-group">
+        <div class="menu-group" data-df>
           <div class="gh"><h3>Hand-Shaken Cocktails</h3><span class="ln"></span></div>
           <div class="mitems">
             <div class="mitem"><img class="mthumb" loading="lazy" src="/static/images/mango_mama.webp" alt="Mango Mama"><div class="txt"><span class="nm">Mango Mama</span><div class="ds"><em>Sweet and sassy</em> &mdash; Tito's Vodka, lime, fresh mango, ginger beer</div></div></div>
@@ -1536,7 +1610,7 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
             <div class="mitem"><img class="mthumb" loading="lazy" src="/static/images/cantaritos_michelada.webp" alt="Cantarito Michelada"><div class="txt"><span class="nm">Cantarito Michelada</span><div class="ds"><em>An authentic Mexican experience</em> &mdash; House-made mix and a beer of your choosing</div></div></div>
           </div>
         </div>
-        <div class="menu-group">
+        <div class="menu-group" data-df>
           <div class="gh"><h3>Mocktails</h3><span class="ln"></span></div>
           <div class="mitems">
             <div class="mitem"><div class="txt"><span class="nm">Daiquiri</span></div></div>
@@ -2671,6 +2745,27 @@ body.ck-orderbar-on .to-top{bottom:calc(96px + env(safe-area-inset-bottom))}
   <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
+<script>
+/* Drinks cover flow (Menu > Tequila): load its script the first time the drinks come near the screen. */
+(function(){
+  var el = document.querySelector('.menu-group[data-df]');
+  if(!el) return;
+  var done = false;
+  function go(){
+    if(done) return; done = true;
+    var s = document.createElement('script');
+    s.src = '/static/js/drink_flow.js?v=20260925d';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++){ if(es[i].isIntersecting){ io.disconnect(); go(); return; } }
+    }, {rootMargin:'800px 0px'});
+    io.observe(el);
+  } else { go(); }
+})();
+</script>
 <script>
 /* Bar Shelf (bottom of Menu > Tequila): load its script the first time the shelf comes near the screen. */
 (function(){
