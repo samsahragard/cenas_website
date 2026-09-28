@@ -21,7 +21,7 @@ class CateringShowcasePageTests(unittest.TestCase):
         self.assertNotIn("data-showcase-pause", page)
         self.assertNotIn("data-showcase-next", page)
         self.assertNotIn("data-showcase-progress", page)
-        self.assertIn('data-feed-url="https://app.cenaskitchen.com/public/catering-showcase"', page)
+        self.assertIn('data-feed-url="https://cater.cenaskitchen.com/public/catering-showcase"', page)
         self.assertIn('src="/static/js/catering_showcase.js" defer', page)
 
     def test_showcase_script_builds_continuous_marquee(self):
